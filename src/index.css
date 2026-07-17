@@ -1,23 +1,33 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter/standard.css";
 
+/*
+ * Palette is navy/blue to match the real Sherr logo (dark navy card, white
+ * wordmark, light-to-medium blue bars forming the "E"). Variable names below
+ * (ink/stone/bronze) are legacy from the earlier warm stone+bronze palette —
+ * kept as-is to avoid touching every component's className, but the actual
+ * values are now navy/blue, not brown/tan.
+ */
 @theme {
   --font-display: Georgia, "Times New Roman", Times, serif;
   --font-sans: "Inter Variable", system-ui, sans-serif;
 
-  --color-ink: #1c1a17;
-  --color-ink-soft: #3d3a34;
+  --color-ink: #142033;
+  --color-ink-soft: #3d4a63;
 
-  --color-stone-50: #f7f4ee;
-  --color-stone-100: #efeae0;
-  --color-stone-200: #e2dbca;
-  --color-stone-300: #cbc0a6;
+  --color-stone-50: #f6f8fa;
+  --color-stone-100: #eef1f5;
+  --color-stone-200: #dde4ec;
+  --color-stone-300: #c2ccd9;
+  --color-stone-400: #93a3b8;
+  --color-stone-500: #6b7d94;
+  --color-stone-800: #1c2b42;
 
-  --color-bronze-50: #f4ede1;
-  --color-bronze-400: #a3814f;
-  --color-bronze-500: #8a6d3f;
-  --color-bronze-600: #715834;
-  --color-bronze-700: #5a4529;
+  --color-bronze-50: #eaf3fb;
+  --color-bronze-400: #6fa8d8;
+  --color-bronze-500: #3f7cb8;
+  --color-bronze-600: #2c5f92;
+  --color-bronze-700: #1f4670;
 }
 
 body {

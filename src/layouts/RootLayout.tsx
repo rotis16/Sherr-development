@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import { SherrWordmark } from "../components/SherrWordmark";
 import { footerNavItems, navItems, siteMeta } from "../content/content";
 
 export function RootLayout() {
@@ -10,10 +11,8 @@ export function RootLayout() {
       <header className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50/95 backdrop-blur">
         <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-8 px-4 py-5 sm:px-6">
           <NavLink to="/" className="flex shrink-0 flex-col leading-tight" onClick={() => setMenuOpen(false)}>
-            <span className="font-display text-xl font-medium tracking-tight text-ink sm:text-2xl">
-              {siteMeta.name}
-            </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-bronze-500 sm:text-[11px]">
+            <SherrWordmark className="text-xl text-ink sm:text-2xl" />
+            <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-bronze-500 sm:text-[11px]">
               {siteMeta.tagline}
             </span>
           </NavLink>
@@ -104,7 +103,7 @@ function Footer() {
     <footer className="border-t border-stone-800 bg-ink text-stone-300">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3">
         <div>
-          <div className="font-display text-xl text-stone-50">{siteMeta.name}</div>
+          <SherrWordmark className="text-xl text-stone-50" />
           <p className="mt-2 text-sm text-stone-400">{siteMeta.legalName}</p>
         </div>
         <div>
