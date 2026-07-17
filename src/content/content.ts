@@ -40,28 +40,62 @@ export const siteMeta = {
   email: PLACEHOLDER("contact email not yet confirmed"),
 };
 
-export type NavItem = {
+export type NavLink = {
   label: string;
   path: string;
-  // The real, indexed URL on sherrdev.com this maps to, for reference.
-  sourceUrl: string;
+  // The real, indexed URL on sherrdev.com this maps to, when known.
+  sourceUrl?: string;
 };
 
+export type NavGroup = {
+  label: string;
+  items: NavLink[];
+};
+
+export type NavEntry = NavLink | NavGroup;
+
+export function isNavGroup(entry: NavEntry): entry is NavGroup {
+  return "items" in entry;
+}
+
 /**
- * Matches page URLs actually indexed under sherrdev.com (confirmed via
- * search, not fabricated). Grouping/order is our best guess and should be
- * checked against the real nav menu once we can see it.
+ * Header nav structure, per the client's explicit direction (2026-07-17):
+ * Home / Company (dropdown) / Properties (dropdown) / Employment / Contact.
+ * sourceUrl is set where we've confirmed a matching indexed page on
+ * sherrdev.com; omitted for pages that are new additions (Blue Box
+ * Management, Gallery) with no confirmed real-site equivalent yet.
  */
-export const navItems: NavItem[] = [
+export const navItems: NavEntry[] = [
   { label: "Home", path: "/", sourceUrl: "https://sherrdev.com/" },
-  { label: "Company Profile", path: "/company-profile", sourceUrl: "https://sherrdev.com/company-profile/" },
-  { label: "Our Team", path: "/team", sourceUrl: "https://sherrdev.com/ourteam/" },
-  { label: "Homes", path: "/homes", sourceUrl: "https://sherrdev.com/homes/" },
-  { label: "Apartments", path: "/apartments", sourceUrl: "https://sherrdev.com/apartments/" },
-  { label: "Commercial Properties", path: "/commercial-properties", sourceUrl: "https://sherrdev.com/commercial-properties/" },
-  { label: "Joint Venture", path: "/joint-venture", sourceUrl: "https://sherrdev.com/sherr-joint-venture/" },
-  { label: "Contact", path: "/contact", sourceUrl: "https://sherrdev.com/contact/" },
+  {
+    label: "Company",
+    items: [
+      { label: "Company History", path: "/company-history" },
+      { label: "Company Profile", path: "/company-profile", sourceUrl: "https://sherrdev.com/company-profile/" },
+      { label: "Team", path: "/team", sourceUrl: "https://sherrdev.com/ourteam/" },
+      { label: "Blue Box Management", path: "/blue-box-management" },
+      { label: "Sherr Joint Venture", path: "/joint-venture", sourceUrl: "https://sherrdev.com/sherr-joint-venture/" },
+    ],
+  },
+  {
+    label: "Properties",
+    items: [
+      { label: "Multifamily Housing", path: "/multifamily-housing", sourceUrl: "https://sherrdev.com/apartments/" },
+      {
+        label: "Single Family Homes and Attached Condos",
+        path: "/single-family-homes",
+        sourceUrl: "https://sherrdev.com/homes/",
+      },
+      {
+        label: "Commercial Properties and Net Investments",
+        path: "/commercial-properties",
+        sourceUrl: "https://sherrdev.com/commercial-properties/",
+      },
+      { label: "Gallery", path: "/gallery" },
+    ],
+  },
   { label: "Employment", path: "/employment", sourceUrl: "https://sherrdev.com/employment/" },
+  { label: "Contact", path: "/contact", sourceUrl: "https://sherrdev.com/contact/" },
 ];
 
 export type TeamMember = {
@@ -180,10 +214,21 @@ export const homeIntro =
 
 export type HomeCard = { label: string; to: string; desc: string };
 
-/** Labels match real nav/page names; one-line descriptions are drafts, not sourced copy. */
+/**
+ * Shortened labels for the compact homepage teaser cards; link targets match
+ * the full nav's Properties submenu paths/titles below.
+ */
 export const homeCards: HomeCard[] = [
-  { label: "Homes", to: "/homes", desc: PLACEHOLDER("one-line description of the Homes page — verify against site") },
-  { label: "Apartments", to: "/apartments", desc: PLACEHOLDER("one-line description of the Apartments page — verify against site") },
+  {
+    label: "Single Family Homes",
+    to: "/single-family-homes",
+    desc: PLACEHOLDER("one-line description of the Single Family Homes page — verify against site"),
+  },
+  {
+    label: "Multifamily Housing",
+    to: "/multifamily-housing",
+    desc: PLACEHOLDER("one-line description of the Multifamily Housing page — verify against site"),
+  },
   {
     label: "Commercial Properties",
     to: "/commercial-properties",
@@ -201,14 +246,14 @@ export type PropertyCategory = {
 
 export const propertyCategories: PropertyCategory[] = [
   {
-    slug: "homes",
-    title: "Homes",
+    slug: "single-family-homes",
+    title: "Single Family Homes and Attached Condos",
     intro: PLACEHOLDER("Homes page intro copy — verify against sherrdev.com/homes/"),
     listings: [],
   },
   {
-    slug: "apartments",
-    title: "Apartments",
+    slug: "multifamily-housing",
+    title: "Multifamily Housing",
     intro: PLACEHOLDER("Apartments page intro copy — verify against sherrdev.com/apartments/"),
     listings: [
       // Confirmed a real property page exists: sherrdev.com/mapletree-apartments/
@@ -217,13 +262,13 @@ export const propertyCategories: PropertyCategory[] = [
   },
   {
     slug: "commercial-properties",
-    title: "Commercial Properties",
+    title: "Commercial Properties and Net Investments",
     intro: PLACEHOLDER("Commercial Properties page intro copy — verify against sherrdev.com/commercial-properties/"),
     listings: [],
   },
   {
     slug: "joint-venture",
-    title: "Joint Venture",
+    title: "Sherr Joint Venture",
     intro: PLACEHOLDER(
       "Draft only, verify wording: Sherr Joint Ventures (SJV) offers capital and assistance to third parties in real estate ventures — budget/marketing strategy analysis, plus capital and talent to complete projects."
     ),
@@ -231,14 +276,17 @@ export const propertyCategories: PropertyCategory[] = [
   },
 ];
 
+export const galleryIntro = PLACEHOLDER(
+  "Gallery page — no real project photos supplied yet. Send photos and we'll build this out."
+);
+
 /**
  * Confirmed verbatim from the homepage screenshot's footer nav row:
  * "Home | Company | Contact | Employment". This is a condensed subset —
- * the real site's main header nav (behind a hamburger icon even on this
- * view) likely has the fuller structure in `navItems` above; we haven't
- * seen that menu opened yet to confirm labels/order.
+ * the fuller header nav structure (with Company/Properties dropdowns) is
+ * in `navItems` above, per the client's explicit direction.
  */
-export const footerNavItems: NavItem[] = [
+export const footerNavItems: NavLink[] = [
   { label: "Home", path: "/", sourceUrl: "https://sherrdev.com/" },
   { label: "Company", path: "/company-profile", sourceUrl: "https://sherrdev.com/company-profile/" },
   { label: "Contact", path: "/contact", sourceUrl: "https://sherrdev.com/contact/" },
