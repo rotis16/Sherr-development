@@ -198,14 +198,6 @@ export const companyHistory = {
     "Mr. Sherr founded Frank's Nursery in the early 1950s. Starting from a single store on Detroit's east side, he grew Frank's into the nation's largest garden center and craft merchandise chain. Under Mr. Sherr's leadership, not only did Frank's achieve high single digit annual growth rates for same-store-sales but it also achieved annual compound growth rates for earnings and return on equity in excess of fifteen percent.",
     "Like his mission at Frank's, Mr. Sherr established a similar mission at SDC — to create value for investors in real estate while beautifying the neighborhood and contributing to the community.",
   ],
-  // Pulled directly from the paragraphs above, not separately sourced.
-  stats: [
-    { value: "Early 1950s", label: "Frank's Nursery Founded" },
-    { value: "150", label: "Stores at Peak" },
-    { value: "15%+", label: "Annual Return on Equity" },
-  ],
-  pullQuote:
-    "To create value for investors in real estate while beautifying the neighborhood and contributing to the community.",
 };
 
 export const heroImage = {
