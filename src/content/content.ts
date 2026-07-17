@@ -212,30 +212,6 @@ export const homeIntroHeading = "A Full-Service Real Estate Company";
 export const homeIntro =
   "Sherr Development is a residential and commercial development company focused on creating value in real estate. Our primary activities include land development, homebuilding, and the acquisition, development and management of multifamily and commercial properties. The team of professionals at Sherr Development is hands-on, hardworking and experienced. With a dedication to serving the needs of our customers, investors and the communities in which we operate, Sherr Development has demonstrated a 20-year track record of consistently identifying properties which provide outstanding risk-adjusted returns.";
 
-export type HomeCard = { label: string; to: string; desc: string };
-
-/**
- * Shortened labels for the compact homepage teaser cards; link targets match
- * the full nav's Properties submenu paths/titles below.
- */
-export const homeCards: HomeCard[] = [
-  {
-    label: "Single Family Homes",
-    to: "/single-family-homes",
-    desc: PLACEHOLDER("one-line description of the Single Family Homes page — verify against site"),
-  },
-  {
-    label: "Multifamily Housing",
-    to: "/multifamily-housing",
-    desc: PLACEHOLDER("one-line description of the Multifamily Housing page — verify against site"),
-  },
-  {
-    label: "Commercial Properties",
-    to: "/commercial-properties",
-    desc: PLACEHOLDER("one-line description of the Commercial Properties page — verify against site"),
-  },
-];
-
 export type PropertyCategory = {
   slug: string;
   title: string;

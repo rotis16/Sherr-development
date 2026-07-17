@@ -1,17 +1,8 @@
 import { Link } from "react-router-dom";
-import { Copy } from "../components/Copy";
 import { DivisionsGrid } from "../components/DivisionsGrid";
 import { PlaceholderImage } from "../components/PlaceholderImage";
 import projectLocationMap from "../assets/project-location-map.png";
-import {
-  divisions,
-  heroHeadline,
-  heroImage,
-  homeCards,
-  homeIntro,
-  homeIntroHeading,
-  projectLocations,
-} from "../content/content";
+import { divisions, heroHeadline, heroImage, homeIntro, homeIntroHeading, projectLocations } from "../content/content";
 
 export function Home() {
   return (
@@ -93,35 +84,8 @@ export function Home() {
         </div>
       </section>
 
-      {/* What We Do */}
-      <section className="border-t border-stone-200">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-          <h2 className="font-display text-3xl font-medium tracking-tight text-ink">What We Do</h2>
-          <div className="mt-8 divide-y divide-stone-200 border-t border-stone-200">
-            {homeCards.map((card, i) => (
-              <Link
-                key={card.to}
-                to={card.to}
-                className="group flex items-center gap-6 py-6 transition-colors hover:bg-stone-50"
-              >
-                <span className="font-display text-lg text-bronze-500">{String(i + 1).padStart(2, "0")}</span>
-                <span className="font-display flex-1 text-xl font-medium text-ink sm:text-2xl">
-                  {card.label}
-                </span>
-                <span className="hidden max-w-sm text-sm text-ink-soft/70 sm:block">
-                  <Copy text={card.desc} />
-                </span>
-                <span className="text-ink-soft/40 transition-transform group-hover:translate-x-1 group-hover:text-bronze-500">
-                  →
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Divisions */}
-      <section className="border-t border-stone-200 bg-stone-100">
+      <section className="border-t border-stone-200">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <h2 className="font-display text-3xl font-medium tracking-tight text-ink">Our Divisions</h2>
           <DivisionsGrid divisions={divisions} />
