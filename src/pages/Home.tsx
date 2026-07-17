@@ -11,7 +11,6 @@ import {
   homeIntro,
   homeIntroHeading,
   projectLocations,
-  siteMeta,
 } from "../content/content";
 
 export function Home() {
@@ -21,10 +20,7 @@ export function Home() {
       <section className="mx-auto max-w-6xl px-4 pb-14 pt-14 sm:px-6 sm:pt-20">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-7">
-            <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-bronze-500">
-              {siteMeta.tagline}
-            </p>
-            <h1 className="font-display mt-5 text-4xl font-medium leading-[1.08] tracking-tight text-ink sm:text-6xl">
+            <h1 className="font-display text-4xl font-medium leading-[1.08] tracking-tight text-ink sm:text-6xl">
               {heroHeadline}
             </h1>
             <div className="mt-9 flex flex-wrap gap-4">

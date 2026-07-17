@@ -10,8 +10,11 @@ export function RootLayout() {
     <div className="flex min-h-screen flex-col bg-stone-50 text-ink-soft">
       <header className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50/95 backdrop-blur">
         <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-8 px-4 py-5 sm:px-6">
-          <NavLink to="/" className="flex shrink-0 items-center" onClick={() => setMenuOpen(false)}>
+          <NavLink to="/" className="flex shrink-0 flex-col leading-tight" onClick={() => setMenuOpen(false)}>
             <SherrWordmark className="text-xl text-ink sm:text-2xl" />
+            <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-bronze-500 sm:text-[11px]">
+              {siteMeta.tagline}
+            </span>
           </NavLink>
 
           <nav className="hidden shrink-0 min-[1650px]:flex min-[1650px]:items-center min-[1650px]:gap-5">
