@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Copy } from "../components/Copy";
 import { PlaceholderImage } from "../components/PlaceholderImage";
-import projectLocationMap from "../assets/project-location-map.jpeg";
+import projectLocationMap from "../assets/project-location-map.png";
 import {
   divisions,
   heroHeadline,
@@ -88,13 +88,11 @@ export function Home() {
       {/* Project location map */}
       <section className="border-t border-stone-200 bg-stone-100">
         <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
-          <div className="inline-block border border-stone-300 bg-white p-5 shadow-[0_8px_24px_-12px_rgba(28,26,23,0.25)] sm:p-8">
-            <img
-              src={projectLocationMap}
-              alt={`Project location map — ${projectLocations.join(", ")}`}
-              className="w-full max-w-md"
-            />
-          </div>
+          <img
+            src={projectLocationMap}
+            alt={`Project location map — ${projectLocations.join(", ")}`}
+            className="mx-auto w-full max-w-md"
+          />
         </div>
       </section>
 
