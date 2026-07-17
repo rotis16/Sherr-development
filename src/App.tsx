@@ -4,6 +4,7 @@ import { Apartments } from "./pages/Apartments";
 import { CommercialProperties } from "./pages/CommercialProperties";
 import { CompanyProfile } from "./pages/CompanyProfile";
 import { Contact } from "./pages/Contact";
+import { Employment } from "./pages/Employment";
 import { Home } from "./pages/Home";
 import { Homes } from "./pages/Homes";
 import { JointVenture } from "./pages/JointVenture";
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="commercial-properties" element={<CommercialProperties />} />
         <Route path="joint-venture" element={<JointVenture />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="employment" element={<Employment />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

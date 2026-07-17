@@ -9,14 +9,17 @@
  *
  * Sources used so far (the live site itself could not be fetched directly —
  * network policy blocked sherrdev.com for this session):
+ *  - Real screenshots of the live homepage sent by the client (2026-07-17) —
+ *    anything cited "homepage screenshot" below is verbatim/confirmed.
  *  - Search-engine snippets referencing sherrdev.com pages (page titles/URLs
  *    are reliable; body copy summaries are NOT verbatim and are treated as
- *    placeholders, not fact)
+ *    placeholders, not fact) — still the only source for pages we haven't
+ *    gotten screenshots of yet.
  *  - Third-party directories (ZoomInfo, RocketReach, Yelp) for
- *    address/phone, cross-checked across multiple sources
+ *    address/phone, since confirmed exactly by the homepage screenshot too.
  *
- * TODO: replace every PLACEHOLDER(...) with real copy/photos from the
- * client or from a direct site fetch once network access is available.
+ * TODO: replace every remaining PLACEHOLDER(...) with real copy/photos from
+ * the client, page by page.
  * ---------------------------------------------------------------------------
  */
 
@@ -28,7 +31,7 @@ export const siteMeta = {
   legalName: "Sherr Development Corporation",
   // Page <title> seen in search results: "Sherr – Construction • Development • Management"
   tagline: "Construction • Development • Management",
-  // Confirmed consistently across multiple third-party listings (ZoomInfo, Yelp, RocketReach)
+  // Confirmed verbatim from homepage screenshot footer ("FIND US")
   phone: "(248) 626-9099",
   address: {
     line1: "31300 Orchard Lake Rd, Suite 200",
@@ -58,6 +61,7 @@ export const navItems: NavItem[] = [
   { label: "Commercial Properties", path: "/commercial-properties", sourceUrl: "https://sherrdev.com/commercial-properties/" },
   { label: "Joint Venture", path: "/joint-venture", sourceUrl: "https://sherrdev.com/sherr-joint-venture/" },
   { label: "Contact", path: "/contact", sourceUrl: "https://sherrdev.com/contact/" },
+  { label: "Employment", path: "/employment", sourceUrl: "https://sherrdev.com/employment/" },
 ];
 
 export type TeamMember = {
@@ -111,43 +115,58 @@ export const team: TeamMember[] = [
 
 export type Division = {
   name: string;
+  /** Short tagline, confirmed verbatim from the homepage screenshot's three division cards. */
   summary: string;
 };
 
+/**
+ * Confirmed verbatim from the homepage screenshot's three cards. Note:
+ * Sherr Joint Ventures (SJV) is NOT one of these three homepage cards — it
+ * has its own nav page (see propertyCategories "joint-venture" below),
+ * still unconfirmed pending a screenshot of that page.
+ */
 export const divisions: Division[] = [
   {
-    name: "Blue Box Management",
-    summary: PLACEHOLDER(
-      "Draft only, verify wording: full-service property management company handling 24/7 management of multifamily and commercial assets."
-    ),
+    name: "Sherr Development Corporation",
+    summary: "Creating value in real estate",
   },
   {
-    name: "Sherr Joint Ventures (SJV)",
-    summary: PLACEHOLDER(
-      "Draft only, verify wording: offers capital and assistance to third parties in real estate ventures, including budget/marketing analysis and access to capital and talent."
-    ),
+    name: "Blue Box Management LLC",
+    summary: "Managing for performance",
   },
   {
-    name: "Sherr Capital",
-    summary: PLACEHOLDER("Draft only, financial arm supporting projects — description unconfirmed."),
+    name: "Sherr Capital LLC",
+    // Source reads "Stength" (typo) — corrected to "Strength" here. Flagged
+    // to the client; revert if they'd rather match the live site exactly.
+    summary: "Providing financial strength to support real estate endeavors",
   },
 ];
+
+/** Confirmed verbatim from the homepage's "PROJECT LOCATION MAP" graphic. */
+export const projectLocations: string[] = ["California", "Florida", "Hawaii", "Michigan", "Oklahoma", "Utah"];
 
 export const companyHistory = {
   founderName: "I. William Sherr",
   blurb: PLACEHOLDER(
-    "Draft only, verify wording and dates: founded Sherr Development Corporation following the sale of Frank's Nursery & Crafts, Inc. Company has operated in real estate development, homebuilding, and multifamily/commercial acquisition and management since. Track record and year-founded figures found in research were inconsistent (references to both a 1985 founding and a company history spanning several decades) — needs confirmation from the client or the live site before publishing any specific numbers."
+    "Draft only, verify wording and dates: founded Sherr Development Corporation following the sale of Frank's Nursery & Crafts, Inc. Needs confirmation from the Company Profile / Company History page — not yet screenshotted."
   ),
 };
 
 export const heroImage = {
   src: null as string | null,
-  alt: PLACEHOLDER("hero photo not yet supplied — send a real project photo"),
+  // Confirmed subject from homepage screenshot: a city skyline over water
+  // (Detroit riverfront, GM Renaissance Center visible) — still need the
+  // actual photo file from the client to use it here.
+  alt: PLACEHOLDER("hero photo not yet supplied — send the real skyline photo file used on the homepage"),
 };
 
-export const homeIntro = PLACEHOLDER(
-  "homepage intro paragraph — pull real wording from sherrdev.com or the client"
-);
+/** Confirmed verbatim from the homepage hero banner (overlaid on the skyline photo). */
+export const heroHeadline = "Identifying and Creating Value in Real Estate";
+
+/** Confirmed verbatim from the homepage "A Full-Service Real Estate Company" section. */
+export const homeIntroHeading = "A Full-Service Real Estate Company";
+export const homeIntro =
+  "Sherr Development is a residential and commercial development company focused on creating value in real estate. Our primary activities include land development, homebuilding, and the acquisition, development and management of multifamily and commercial properties. The team of professionals at Sherr Development is hands-on, hardworking and experienced. With a dedication to serving the needs of our customers, investors and the communities in which we operate, Sherr Development has demonstrated a 20-year track record of consistently identifying properties which provide outstanding risk-adjusted returns.";
 
 export type HomeCard = { label: string; to: string; desc: string };
 
@@ -200,6 +219,20 @@ export const propertyCategories: PropertyCategory[] = [
     ),
     listings: [],
   },
+];
+
+/**
+ * Confirmed verbatim from the homepage screenshot's footer nav row:
+ * "Home | Company | Contact | Employment". This is a condensed subset —
+ * the real site's main header nav (behind a hamburger icon even on this
+ * view) likely has the fuller structure in `navItems` above; we haven't
+ * seen that menu opened yet to confirm labels/order.
+ */
+export const footerNavItems: NavItem[] = [
+  { label: "Home", path: "/", sourceUrl: "https://sherrdev.com/" },
+  { label: "Company", path: "/company-profile", sourceUrl: "https://sherrdev.com/company-profile/" },
+  { label: "Contact", path: "/contact", sourceUrl: "https://sherrdev.com/contact/" },
+  { label: "Employment", path: "/employment", sourceUrl: "https://sherrdev.com/employment/" },
 ];
 
 export const testimonials: { quote: string; attribution: string }[] = [

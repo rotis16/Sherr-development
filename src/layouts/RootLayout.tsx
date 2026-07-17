@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { navItems, siteMeta } from "../content/content";
+import { footerNavItems, navItems, siteMeta } from "../content/content";
 
 export function RootLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -118,7 +118,7 @@ function Footer() {
         <div>
           <div className="text-sm font-semibold uppercase tracking-wide text-slate-100">Navigate</div>
           <ul className="mt-2 space-y-1 text-sm">
-            {navItems.map((item) => (
+            {footerNavItems.map((item) => (
               <li key={item.path}>
                 <NavLink to={item.path} className="text-slate-400 hover:text-white">
                   {item.label}
