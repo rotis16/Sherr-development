@@ -1,9 +1,8 @@
 @import "tailwindcss";
-@import "@fontsource-variable/fraunces/opsz.css";
 @import "@fontsource-variable/inter/standard.css";
 
 @theme {
-  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-display: Georgia, "Times New Roman", Times, serif;
   --font-sans: "Inter Variable", system-ui, sans-serif;
 
   --color-ink: #1c1a17;
@@ -28,5 +27,4 @@ body {
 
 .font-display {
   font-family: var(--font-display);
-  font-optical-sizing: auto;
 }
