@@ -1,1 +1,32 @@
 @import "tailwindcss";
+@import "@fontsource-variable/fraunces/opsz.css";
+@import "@fontsource-variable/inter/standard.css";
+
+@theme {
+  --font-display: "Fraunces Variable", Georgia, serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+
+  --color-ink: #1c1a17;
+  --color-ink-soft: #3d3a34;
+
+  --color-stone-50: #f7f4ee;
+  --color-stone-100: #efeae0;
+  --color-stone-200: #e2dbca;
+  --color-stone-300: #cbc0a6;
+
+  --color-bronze-50: #f4ede1;
+  --color-bronze-400: #a3814f;
+  --color-bronze-500: #8a6d3f;
+  --color-bronze-600: #715834;
+  --color-bronze-700: #5a4529;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink-soft);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}

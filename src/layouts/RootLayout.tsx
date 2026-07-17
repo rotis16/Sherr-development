@@ -6,29 +6,29 @@ export function RootLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-slate-800">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-          <NavLink to="/" className="flex flex-col leading-tight" onClick={() => setMenuOpen(false)}>
-            <span className="text-lg font-semibold tracking-tight text-slate-900 sm:text-xl">
+    <div className="flex min-h-screen flex-col bg-stone-50 text-ink-soft">
+      <header className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50/95 backdrop-blur">
+        <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-8 px-4 py-5 sm:px-6">
+          <NavLink to="/" className="flex shrink-0 flex-col leading-tight" onClick={() => setMenuOpen(false)}>
+            <span className="font-display text-xl font-medium tracking-tight text-ink sm:text-2xl">
               {siteMeta.name}
             </span>
-            <span className="text-[11px] uppercase tracking-widest text-amber-700 sm:text-xs">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-bronze-500 sm:text-[11px]">
               {siteMeta.tagline}
             </span>
           </NavLink>
 
-          <nav className="hidden lg:flex lg:items-center lg:gap-1">
+          <nav className="hidden shrink-0 min-[1650px]:flex min-[1650px]:items-center min-[1650px]:gap-5">
             {navItems.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 end={item.path === "/"}
                 className={({ isActive }) =>
-                  `rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  `whitespace-nowrap border-b py-1 text-[12px] font-medium uppercase tracking-normal transition-colors ${
                     isActive
-                      ? "bg-slate-900 text-white"
-                      : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                      ? "border-bronze-500 text-ink"
+                      : "border-transparent text-ink-soft/70 hover:border-stone-300 hover:text-ink"
                   }`
                 }
               >
@@ -39,19 +39,19 @@ export function RootLayout() {
 
           <a
             href={`tel:${siteMeta.phone.replace(/[^\d+]/g, "")}`}
-            className="hidden rounded-md bg-amber-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-amber-800 lg:inline-block"
+            className="hidden shrink-0 whitespace-nowrap border border-ink px-4 py-2 text-[13px] font-medium tracking-wide text-ink transition-colors hover:bg-ink hover:text-stone-50 min-[1650px]:inline-block"
           >
             {siteMeta.phone}
           </a>
 
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-slate-700 hover:bg-slate-100 lg:hidden"
+            className="inline-flex items-center justify-center p-2 text-ink min-[1650px]:hidden"
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               {menuOpen ? (
                 <path d="M18 6 6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
               ) : (
@@ -62,7 +62,7 @@ export function RootLayout() {
         </div>
 
         {menuOpen && (
-          <nav className="border-t border-slate-200 bg-white lg:hidden">
+          <nav className="border-t border-stone-200 bg-stone-50 min-[1650px]:hidden">
             <div className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
               {navItems.map((item) => (
                 <NavLink
@@ -71,8 +71,8 @@ export function RootLayout() {
                   end={item.path === "/"}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `rounded-md px-3 py-3 text-base font-medium ${
-                      isActive ? "bg-slate-900 text-white" : "text-slate-700 hover:bg-slate-100"
+                    `border-b border-stone-200 py-3 text-sm font-medium uppercase tracking-wide ${
+                      isActive ? "text-bronze-600" : "text-ink-soft"
                     }`
                   }
                 >
@@ -81,7 +81,7 @@ export function RootLayout() {
               ))}
               <a
                 href={`tel:${siteMeta.phone.replace(/[^\d+]/g, "")}`}
-                className="my-2 rounded-md bg-amber-700 px-4 py-3 text-center text-base font-semibold text-white"
+                className="my-4 border border-ink px-4 py-3 text-center text-sm font-medium tracking-wide text-ink"
               >
                 Call {siteMeta.phone}
               </a>
@@ -101,26 +101,29 @@ export function RootLayout() {
 
 function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-900 text-slate-300">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
+    <footer className="border-t border-stone-800 bg-ink text-stone-300">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3">
         <div>
-          <div className="text-lg font-semibold text-white">{siteMeta.name}</div>
-          <p className="mt-2 text-sm text-slate-400">{siteMeta.legalName}</p>
+          <div className="font-display text-xl text-stone-50">{siteMeta.name}</div>
+          <p className="mt-2 text-sm text-stone-400">{siteMeta.legalName}</p>
         </div>
         <div>
-          <div className="text-sm font-semibold uppercase tracking-wide text-slate-100">Contact</div>
-          <p className="mt-2 text-sm">{siteMeta.address.line1}</p>
+          <div className="text-[11px] font-medium uppercase tracking-[0.2em] text-bronze-400">Contact</div>
+          <p className="mt-3 text-sm">{siteMeta.address.line1}</p>
           <p className="text-sm">{siteMeta.address.line2}</p>
-          <a href={`tel:${siteMeta.phone.replace(/[^\d+]/g, "")}`} className="mt-2 block text-sm text-amber-400 hover:underline">
+          <a
+            href={`tel:${siteMeta.phone.replace(/[^\d+]/g, "")}`}
+            className="mt-3 block text-sm text-stone-100 hover:text-bronze-400"
+          >
             {siteMeta.phone}
           </a>
         </div>
         <div>
-          <div className="text-sm font-semibold uppercase tracking-wide text-slate-100">Navigate</div>
-          <ul className="mt-2 space-y-1 text-sm">
+          <div className="text-[11px] font-medium uppercase tracking-[0.2em] text-bronze-400">Navigate</div>
+          <ul className="mt-3 space-y-2 text-sm">
             {footerNavItems.map((item) => (
               <li key={item.path}>
-                <NavLink to={item.path} className="text-slate-400 hover:text-white">
+                <NavLink to={item.path} className="text-stone-400 hover:text-stone-100">
                   {item.label}
                 </NavLink>
               </li>
@@ -128,7 +131,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-slate-800 px-4 py-4 text-center text-xs text-slate-500 sm:px-6">
+      <div className="border-t border-stone-800 px-4 py-5 text-center text-xs text-stone-500 sm:px-6">
         &copy; {new Date().getFullYear()} {siteMeta.legalName}. Redesign preview — not the live site.
       </div>
     </footer>

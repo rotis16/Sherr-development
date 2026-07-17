@@ -7,20 +7,17 @@ export function Team() {
   return (
     <div>
       <PageHeader title="Our Team" subtitle="The people behind Sherr Development." />
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="grid gap-8 sm:grid-cols-2">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+        <div className="grid gap-10 sm:grid-cols-2">
           {team.map((member) => (
-            <div key={member.name} className="flex gap-4 rounded-lg border border-slate-200 p-5">
-              <PlaceholderImage
-                label="Headshot"
-                className="h-24 w-24 shrink-0 rounded-full text-[10px]"
-              />
+            <div key={member.name} className="flex gap-5 border-t border-stone-200 pt-6">
+              <PlaceholderImage label="Headshot" className="h-24 w-24 shrink-0 rounded-full text-[10px]" />
               <div>
-                <h3 className="text-lg font-semibold text-slate-900">{member.name}</h3>
-                <div className="text-sm font-medium text-amber-700">
+                <h3 className="font-display text-lg font-medium text-ink">{member.name}</h3>
+                <div className="mt-0.5 text-xs font-medium uppercase tracking-wide text-bronze-600">
                   <Copy text={member.title} />
                 </div>
-                <div className="mt-2 text-sm leading-relaxed text-slate-600">
+                <div className="mt-2 text-sm leading-relaxed text-ink-soft/85">
                   <Copy text={member.bio} />
                 </div>
               </div>

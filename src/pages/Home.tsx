@@ -16,81 +16,120 @@ import {
 export function Home() {
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-slate-200 bg-slate-900">
-        <PlaceholderImage
-          label={heroImage.alt}
-          showLabel={false}
-          className="absolute inset-0 h-full w-full opacity-40"
-        />
-        <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-28">
-          <p className="text-sm font-semibold uppercase tracking-widest text-amber-400">
-            {siteMeta.tagline}
-          </p>
-          <h1 className="mt-4 text-3xl font-semibold tracking-tight text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.6)] sm:text-5xl">
-            {heroHeadline}
-          </h1>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              to="/company-profile"
-              className="rounded-md bg-amber-700 px-5 py-3 text-sm font-semibold text-white hover:bg-amber-800"
-            >
-              About the Company
-            </Link>
-            <Link
-              to="/contact"
-              className="rounded-md border border-slate-400 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
-            >
-              Contact Us
-            </Link>
+      {/* Hero */}
+      <section className="mx-auto max-w-6xl px-4 pb-14 pt-14 sm:px-6 sm:pt-20">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-7">
+            <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-bronze-500">
+              {siteMeta.tagline}
+            </p>
+            <h1 className="font-display mt-5 text-4xl font-medium leading-[1.08] tracking-tight text-ink sm:text-6xl">
+              {heroHeadline}
+            </h1>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Link
+                to="/company-profile"
+                className="bg-ink px-6 py-3 text-sm font-medium tracking-wide text-stone-50 transition-colors hover:bg-bronze-600"
+              >
+                About the Company
+              </Link>
+              <Link
+                to="/contact"
+                className="border border-ink/30 px-6 py-3 text-sm font-medium tracking-wide text-ink transition-colors hover:border-ink"
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+          <div className="lg:col-span-5">
+            <PlaceholderImage label={heroImage.alt} className="aspect-[4/5] w-full lg:aspect-auto lg:h-full" />
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-          {homeIntroHeading}
-        </h2>
-        <p className="mt-5 text-slate-600">{homeIntro}</p>
-      </section>
+      {/* Intro */}
+      <section className="border-y border-stone-200 bg-stone-100">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-4">
+              <div className="mb-4 h-px w-12 bg-bronze-500" />
+              <h2 className="font-display text-3xl font-medium leading-tight tracking-tight text-ink">
+                {homeIntroHeading}
+              </h2>
+            </div>
+            <div className="lg:col-span-8">
+              <p className="max-w-2xl text-[17px] leading-relaxed text-ink-soft/90">{homeIntro}</p>
 
-      <section className="border-t border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6">
-          <img
-            src={projectLocationMap}
-            alt={`Project location map — ${projectLocations.join(", ")}`}
-            className="mx-auto w-full max-w-xl rounded-lg"
-          />
-        </div>
-      </section>
-
-      <section className="border-t border-slate-200 mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-slate-900">What We Do</h2>
-        <div className="mt-8 grid gap-6 sm:grid-cols-3">
-          {homeCards.map((card) => (
-            <Link
-              key={card.to}
-              to={card.to}
-              className="group rounded-lg border border-slate-200 p-6 transition-shadow hover:shadow-md"
-            >
-              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-amber-700">
-                {card.label}
-              </h3>
-              <div className="mt-2 text-sm text-slate-600">
-                <Copy text={card.desc} />
+              <div className="mt-10 flex flex-wrap gap-x-12 gap-y-6 border-t border-stone-300 pt-8">
+                <div>
+                  <div className="font-display text-4xl font-medium text-ink">20+</div>
+                  <div className="mt-1 text-xs font-medium uppercase tracking-wide text-ink-soft/70">
+                    Years, Track Record
+                  </div>
+                </div>
+                <div>
+                  <div className="font-display text-4xl font-medium text-ink">{projectLocations.length}</div>
+                  <div className="mt-1 text-xs font-medium uppercase tracking-wide text-ink-soft/70">
+                    States of Operation
+                  </div>
+                </div>
+                <div>
+                  <div className="font-display text-4xl font-medium text-ink">{divisions.length}</div>
+                  <div className="mt-1 text-xs font-medium uppercase tracking-wide text-ink-soft/70">
+                    Affiliated Divisions
+                  </div>
+                </div>
               </div>
-            </Link>
-          ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="border-t border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-900">Our Divisions</h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-3">
+      {/* Project location map */}
+      <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+        <img
+          src={projectLocationMap}
+          alt={`Project location map — ${projectLocations.join(", ")}`}
+          className="mx-auto w-full max-w-lg border border-stone-200"
+        />
+      </section>
+
+      {/* What We Do */}
+      <section className="border-t border-stone-200">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+          <h2 className="font-display text-3xl font-medium tracking-tight text-ink">What We Do</h2>
+          <div className="mt-8 divide-y divide-stone-200 border-t border-stone-200">
+            {homeCards.map((card, i) => (
+              <Link
+                key={card.to}
+                to={card.to}
+                className="group flex items-center gap-6 py-6 transition-colors hover:bg-stone-50"
+              >
+                <span className="font-display text-lg text-bronze-500">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-display flex-1 text-xl font-medium text-ink sm:text-2xl">
+                  {card.label}
+                </span>
+                <span className="hidden max-w-sm text-sm text-ink-soft/70 sm:block">
+                  <Copy text={card.desc} />
+                </span>
+                <span className="text-ink-soft/40 transition-transform group-hover:translate-x-1 group-hover:text-bronze-500">
+                  →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divisions */}
+      <section className="border-t border-stone-200 bg-stone-100">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+          <h2 className="font-display text-3xl font-medium tracking-tight text-ink">Our Divisions</h2>
+          <div className="mt-8 grid gap-10 sm:grid-cols-3">
             {divisions.map((d) => (
-              <div key={d.name} className="rounded-lg bg-white p-6 text-center shadow-sm">
-                <h3 className="text-lg font-semibold text-slate-900">{d.name}</h3>
-                <p className="mt-2 text-sm text-slate-600">{d.summary}</p>
+              <div key={d.name} className="border-t-2 border-bronze-500 pt-5">
+                <h3 className="font-display text-lg font-medium text-ink">{d.name}</h3>
+                <p className="mt-2 text-sm text-ink-soft/80">{d.summary}</p>
               </div>
             ))}
           </div>
