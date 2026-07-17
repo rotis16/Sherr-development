@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Copy } from "../components/Copy";
+import { DivisionsGrid } from "../components/DivisionsGrid";
 import { PlaceholderImage } from "../components/PlaceholderImage";
 import projectLocationMap from "../assets/project-location-map.png";
 import {
@@ -127,15 +128,7 @@ export function Home() {
       <section className="border-t border-stone-200 bg-stone-100">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <h2 className="font-display text-3xl font-medium tracking-tight text-ink">Our Divisions</h2>
-          <div className="mt-8 grid gap-10 sm:grid-cols-3">
-            {divisions.map((d) => (
-              <div key={d.name} className="border-t-2 border-bronze-500 pt-5">
-                <h3 className="font-display text-lg font-medium text-ink">{d.name}</h3>
-                <p className="mt-1 text-sm italic text-bronze-600">{d.summary}</p>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft/80">{d.description}</p>
-              </div>
-            ))}
-          </div>
+          <DivisionsGrid divisions={divisions} />
         </div>
       </section>
     </div>
