@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Copy } from "../components/Copy";
 import { PlaceholderImage } from "../components/PlaceholderImage";
+import projectLocationMap from "../assets/project-location-map.jpeg";
 import {
   divisions,
   heroHeadline,
@@ -54,14 +55,11 @@ export function Home() {
 
       <section className="border-t border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-4xl px-4 py-16 text-center sm:px-6">
-          <PlaceholderImage
-            label="Project location map graphic — needs the real map asset"
-            className="mx-auto h-56 w-full max-w-xl rounded-lg"
+          <img
+            src={projectLocationMap}
+            alt={`Project location map — ${projectLocations.join(", ")}`}
+            className="mx-auto w-full max-w-xl rounded-lg"
           />
-          <h3 className="mt-6 text-sm font-semibold uppercase tracking-widest text-slate-500">
-            Project Location Map
-          </h3>
-          <p className="mt-2 text-slate-700">{projectLocations.join(" | ")}</p>
         </div>
       </section>
 
