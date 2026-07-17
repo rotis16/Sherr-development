@@ -189,11 +189,15 @@ export const divisions: Division[] = [
 /** Confirmed verbatim from the homepage's "PROJECT LOCATION MAP" graphic. */
 export const projectLocations: string[] = ["California", "Florida", "Hawaii", "Michigan", "Oklahoma", "Utah"];
 
+/** Confirmed verbatim from a screenshot of sherrdev.com/company-history/. */
 export const companyHistory = {
   founderName: "I. William Sherr",
-  blurb: PLACEHOLDER(
-    "Draft only, verify wording and dates: founded Sherr Development Corporation following the sale of Frank's Nursery & Crafts, Inc. Needs confirmation from the Company Profile / Company History page — not yet screenshotted."
-  ),
+  missionHeading: "Our Mission, to Create Value for Investors, Follows Directly from the Early Mission of our Founder",
+  paragraphs: [
+    "I. William Sherr started SDC immediately after the sale of Frank's Nursery and Crafts, Inc., a highly successful 150 store garden center chain selling lawn, garden and craft merchandise.",
+    "Mr. Sherr founded Frank's Nursery in the early 1950s. Starting from a single store on Detroit's east side, he grew Frank's into the nation's largest garden center and craft merchandise chain. Under Mr. Sherr's leadership, not only did Frank's achieve high single digit annual growth rates for same-store-sales but it also achieved annual compound growth rates for earnings and return on equity in excess of fifteen percent.",
+    "Like his mission at Frank's, Mr. Sherr established a similar mission at SDC — to create value for investors in real estate while beautifying the neighborhood and contributing to the community.",
+  ],
 };
 
 export const heroImage = {
