@@ -131,7 +131,8 @@ export function Home() {
             {divisions.map((d) => (
               <div key={d.name} className="border-t-2 border-bronze-500 pt-5">
                 <h3 className="font-display text-lg font-medium text-ink">{d.name}</h3>
-                <p className="mt-2 text-sm text-ink-soft/80">{d.summary}</p>
+                <p className="mt-1 text-sm italic text-bronze-600">{d.summary}</p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft/80">{d.description}</p>
               </div>
             ))}
           </div>

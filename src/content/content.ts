@@ -117,10 +117,14 @@ export type Division = {
   name: string;
   /** Short tagline, confirmed verbatim from the homepage screenshot's three division cards. */
   summary: string;
+  /** Longer copy, confirmed verbatim from the flip-side of each card on the live site. */
+  description: string;
 };
 
 /**
- * Confirmed verbatim from the homepage screenshot's three cards. Note:
+ * Confirmed verbatim from the homepage screenshot's three cards (the site
+ * shows these as tap-to-flip cards; we show both sides at once instead —
+ * see the design note on the Home/CompanyProfile divisions section). Note:
  * Sherr Joint Ventures (SJV) is NOT one of these three homepage cards — it
  * has its own nav page (see propertyCategories "joint-venture" below),
  * still unconfirmed pending a screenshot of that page.
@@ -129,16 +133,22 @@ export const divisions: Division[] = [
   {
     name: "Sherr Development Corporation",
     summary: "Creating value in real estate",
+    description:
+      "A private real estate investment firm with a proven track record of creating value and generating attractive returns in real estate.",
   },
   {
     name: "Blue Box Management LLC",
     summary: "Managing for performance",
+    description:
+      "Adhering to the best management practices in the industry with a focus on maximizing asset performance.",
   },
   {
     name: "Sherr Capital LLC",
     // Source reads "Stength" (typo) — corrected to "Strength" here. Flagged
     // to the client; revert if they'd rather match the live site exactly.
     summary: "Providing financial strength to support real estate endeavors",
+    description:
+      "Making available the necessary capital and talent through the entire life cycle of real estate projects.",
   },
 ];
 
