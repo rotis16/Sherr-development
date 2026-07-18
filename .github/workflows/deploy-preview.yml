@@ -3,7 +3,7 @@ name: Deploy preview to GitHub Pages
 on:
   push:
     branches:
-      - claude/review-work-progress-xxvdgz
+      - claude/sherr-dev-redesign-34v2x1
   workflow_dispatch: {}
 
 permissions:
