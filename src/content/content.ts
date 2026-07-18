@@ -691,6 +691,10 @@ export const galleryIntro = PLACEHOLDER(
   "Gallery page — no real project photos supplied yet. Send photos and we'll build this out."
 );
 
+/** Confirmed verbatim from a screenshot of sherrdev.com/employment/. */
+export const employmentIntro =
+  "Are you interested in being part of Sherr Development Corporation's Team? We would love to hear from you! Tell us a little bit about you. Don't forget to attach your resume of qualifications and experience. We are looking forward to getting to know you.";
+
 /**
  * Confirmed verbatim from the homepage screenshot's footer nav row:
  * "Home | Company | Contact | Employment". This is a condensed subset —
