@@ -3,6 +3,15 @@ import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { SherrWordmark } from "../components/SherrWordmark";
 import { footerNavItems, isNavGroup, navItems, siteMeta, type NavEntry } from "../content/content";
 
+/**
+ * A NavLink to the page you're already on doesn't fire a location change,
+ * so the route-change scroll reset never runs — this covers that case
+ * (re-clicking the logo, or a nav item, while already on that page).
+ */
+function scrollToTop() {
+  window.scrollTo({ top: 0 });
+}
+
 export function RootLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -10,7 +19,14 @@ export function RootLayout() {
     <div className="flex min-h-screen flex-col bg-stone-50 text-ink-soft">
       <header className="sticky top-0 z-50 border-b border-stone-200 bg-stone-50/95 backdrop-blur">
         <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-8 px-4 py-5 sm:px-6">
-          <NavLink to="/" className="flex min-w-0 flex-col leading-tight" onClick={() => setMenuOpen(false)}>
+          <NavLink
+            to="/"
+            className="flex min-w-0 flex-col leading-tight"
+            onClick={() => {
+              setMenuOpen(false);
+              scrollToTop();
+            }}
+          >
             <SherrWordmark className="text-xl text-ink sm:text-2xl" />
             <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-bronze-500 sm:text-[11px]">
               {siteMeta.tagline}
@@ -67,6 +83,7 @@ function DesktopNavEntry({ entry }: { entry: NavEntry }) {
       <NavLink
         to={entry.path}
         end={entry.path === "/"}
+        onClick={scrollToTop}
         className={({ isActive }) =>
           `whitespace-nowrap border-b py-1 text-[12px] font-medium uppercase tracking-normal transition-colors ${
             isActive
@@ -102,6 +119,7 @@ function DesktopNavEntry({ entry }: { entry: NavEntry }) {
             <NavLink
               key={item.path}
               to={item.path}
+              onClick={scrollToTop}
               className={({ isActive }) =>
                 `block px-4 py-2.5 text-[13px] font-medium transition-colors ${
                   isActive ? "bg-stone-100 text-bronze-600" : "text-ink-soft hover:bg-stone-100 hover:text-ink"
@@ -130,7 +148,10 @@ function MobileNav({ onNavigate }: { onNavigate: () => void }) {
                 key={entry.path}
                 to={entry.path}
                 end={entry.path === "/"}
-                onClick={onNavigate}
+                onClick={() => {
+                  onNavigate();
+                  scrollToTop();
+                }}
                 className={({ isActive }) =>
                   `border-b border-stone-200 py-3 text-sm font-medium uppercase tracking-wide ${
                     isActive ? "text-bronze-600" : "text-ink-soft"
@@ -170,7 +191,10 @@ function MobileNav({ onNavigate }: { onNavigate: () => void }) {
                     <NavLink
                       key={item.path}
                       to={item.path}
-                      onClick={onNavigate}
+                      onClick={() => {
+                        onNavigate();
+                        scrollToTop();
+                      }}
                       className={({ isActive }) =>
                         `block py-2.5 text-sm ${isActive ? "text-bronze-600" : "text-ink-soft/80"}`
                       }
@@ -218,7 +242,7 @@ function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             {footerNavItems.map((item) => (
               <li key={item.path}>
-                <NavLink to={item.path} className="text-stone-400 hover:text-stone-100">
+                <NavLink to={item.path} onClick={scrollToTop} className="text-stone-400 hover:text-stone-100">
                   {item.label}
                 </NavLink>
               </li>
