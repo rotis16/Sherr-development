@@ -104,46 +104,37 @@ export type TeamMember = {
   bio: string;
 };
 
+/** Confirmed verbatim from a screenshot of sherrdev.com/ourteam/. */
+export const teamHeading =
+  "Our Team Of Professionals Have Been Developing, Building And Managing Real Estate Investments For More Than 90 Years";
+
 /**
- * Names/titles/credentials below appeared consistently in search summaries
- * of https://sherrdev.com/ourteam/ but are NOT verbatim page text — treat
- * as a strong draft that needs a side-by-side check against the live page.
+ * Confirmed verbatim from a screenshot of sherrdev.com/ourteam/. Note: an
+ * earlier draft included a "Mary Ellen / Controller" entry sourced only
+ * from a search-engine summary — she does not appear on the real team
+ * page (4 members shown, ending at Joseph M. Inwald, before the footer),
+ * so that entry has been removed rather than kept unconfirmed.
  */
 export const team: TeamMember[] = [
   {
     name: "Stuart D. Sherr",
     title: "Co-President",
-    bio: PLACEHOLDER(
-      "Draft only, verify wording: manages land acquisitions, planning, development, engineering, budgeting, and administration of contracts and leases. B.S. Economics, Wharton School (UPenn); J.D., Wayne State University Law School; CPA; licensed real estate broker."
-    ),
+    bio: "Stuart manages the land acquisitions, planning, development, engineering, budgeting and administration of all contracts, leases, and legal matters. Responsibilities also include the preparation of feasibility studies and extensive site plan analysis for both commercial and residential properties. Finally, for new developments Stuart works with municipalities and community groups to balance the needs and objectives of each project in order to achieve site plan approval. Educated in business, finance, accounting, and law, Stuart Sherr's credentials include a Bachelor of Science in Economics, with majors in Accounting and Finance from The Wharton School, University of Pennsylvania, a Juris Doctor degree from Wayne State Law School, a Certified Public Accountant license, and a real estate broker license.",
   },
   {
-    name: "Roger Sherr",
+    name: "Roger M. Sherr",
     title: "Co-President",
-    bio: PLACEHOLDER(
-      "Draft only, verify wording: evaluates feasibility of new commercial and residential projects, analyzes multifamily properties for acquisition and repositioning, arranges financing. B.S. Economics, Wharton School (UPenn); J.D., University of Michigan Law School."
-    ),
+    bio: "Roger's responsibilities include evaluating the feasibility of new commercial and residential projects, analyzing multifamily properties for acquisition and/or repositioning, arranging debt and equity financing for projects, monitoring budgets, and conducting variance analysis for each project during development and operation. Roger Sherr is educated in business, finance, and law with credentials that include a Bachelor of Science in Economics, with majors in accounting and finance, from The Wharton School, University of Pennsylvania, and a Juris Doctor degree from the University of Michigan Law School.",
   },
   {
     name: "Mike Kelly",
-    title: "Director of Operations",
-    bio: PLACEHOLDER(
-      "Draft only, verify wording: oversees apartment communities and commercial properties for Blue Box Management, including budgets, rental pricing strategy, and capital improvement plans."
-    ),
+    title: "Director of Operations and Capital Projects",
+    bio: "Mike Kelly is our Director of Operations for our apartment communities and commercial properties. Mike develops and implements annual operating budgets, rental pricing strategies, expense control procedures, general operating procedures and capital improvement plans for our property management affiliate, Blue Box Management. He is also responsible for implementing and promoting software systems that improve operating efficiency. Providing supreme customer service for all tenants, residents and ownership groups is a top priority for Mike and his team. Mike has an extensive background in property management with degrees in Business Management, Finance and Economics from Northwood University.",
   },
   {
-    name: "Mary Ellen",
-    title: "Controller",
-    bio: PLACEHOLDER(
-      "Draft only, verify wording and full name: responsible for accounting, reporting, and compliance."
-    ),
-  },
-  {
-    name: "Joseph Inwald",
-    title: PLACEHOLDER("exact title unconfirmed"),
-    bio: PLACEHOLDER(
-      "Draft only, verify wording: handles risk management and insurance oversight."
-    ),
+    name: "Joseph M. Inwald",
+    title: "Risk Management & Insurance",
+    bio: "Joseph Inwald handles risk management and insurance oversight functions at Sherr Development. He has extensive experience evaluating and serving the insurance needs of developers with portfolios of industrial, office, retail, and multifamily properties whose values exceed $1.5 billion. He also served as an officer at J&H, a NYSE listed Insurer. He is a CPCU and a member of RIMS. He is educated in business, insurance, and law with credentials including a Bachelor of Science degree from The Wharton School, University of Pennsylvania, and a Juris Doctor degree from the University of Michigan Law School.",
   },
 ];
 
