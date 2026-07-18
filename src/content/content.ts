@@ -161,8 +161,7 @@ export type Division = {
  * shows these as tap-to-flip cards; we show both sides at once instead —
  * see the design note on the Home/CompanyProfile divisions section). Note:
  * Sherr Joint Ventures (SJV) is NOT one of these three homepage cards — it
- * has its own nav page (see propertyCategories "joint-venture" below),
- * still unconfirmed pending a screenshot of that page.
+ * has its own nav page (see `jointVenture` below).
  */
 export const divisions: Division[] = [
   {
@@ -198,6 +197,90 @@ export const companyHistory = {
     "I. William Sherr started SDC immediately after the sale of Frank's Nursery and Crafts, Inc., a highly successful 150 store garden center chain selling lawn, garden and craft merchandise.",
     "Mr. Sherr founded Frank's Nursery in the early 1950s. Starting from a single store on Detroit's east side, he grew Frank's into the nation's largest garden center and craft merchandise chain. Under Mr. Sherr's leadership, not only did Frank's achieve high single digit annual growth rates for same-store-sales but it also achieved annual compound growth rates for earnings and return on equity in excess of fifteen percent.",
     "Like his mission at Frank's, Mr. Sherr established a similar mission at SDC — to create value for investors in real estate while beautifying the neighborhood and contributing to the community.",
+  ],
+};
+
+/** Confirmed verbatim from screenshots of sherrdev.com/company-profile/ (client-supplied, 2026-07-18). */
+export const companyProfile = {
+  heading: "Profile",
+  subheading: "We Concentrate on Adding Value to Identified Properties",
+  paragraphs: [
+    'Sherr Development Corporation ("SDC") is engaged in homebuilding including the design and development of single family and multi-family residential communities, commercial shopping center development, and property management. Since 1985, we have developed and managed over one million sq. ft. of commercial property and have developed, constructed, and sold over two thousand single family homes and condominiums. Commercial property development has ranged from small neighborhood shopping centers to large big-box regional power centers. Single family homes and condominiums have been constructed and sold in communities designed and developed by SDC.',
+    'Value creation is the primary criterion for each of our real estate investments. While everyone attempts to "buy low and sell high", we concentrate on identifying properties where we can create value either through building new residential communities in desirable areas or by repositioning an existing development with prudent upgrades. An example of repositioning is evidenced in our multifamily apartment portfolio. Our strategy is to purchase "C" properties with an average of 200 units, make targeted improvements that were not obvious or feasible by prior ownership, and convert them into "B" properties whereby rents and corresponding returns can be increased.',
+    "To date, the risk-adjusted returns on projects undertaken by SDC have been exceptional. The internal rate of return on residential home building projects has averaged in excess of 100 percent; the internal rate of return on the repositioning of commercial and multifamily properties has averaged in excess of 50 percent. Creating value with new development and unlocking value from existing developments will continue to be the primary objective of the team at SDC.",
+    "Geographically, SDC has focused on select markets within the United States. The primary areas have been in southeast Michigan and southern California; other areas of activity have included Utah, Hawaii, and Florida. With a proven ability to successfully invest and manage developments in different states, we will continue to explore new markets when opportunities are uncovered or presented.",
+  ],
+  valueCreated: {
+    headline: "Over $600 Million in Transaction Value Created by SDC",
+    // Amounts in millions, ordered high to low (matches the source graphic's slice order).
+    breakdown: [
+      { label: "Residential Home Sales", millions: 350 },
+      { label: "Commercial", millions: 210 },
+      { label: "Multifamily", millions: 46 },
+      { label: "Other", millions: 10 },
+    ],
+  },
+};
+
+/** Confirmed verbatim from screenshots of sherrdev.com/blue-box-management/ (client-supplied, 2026-07-18). */
+export const blueBoxManagement = {
+  heading: "Blue Box Management",
+  subheading: "We Effectively Track and Analyze Each Property",
+  paragraphs: [
+    "Blue Box Management is a full-service property management company that specializes in 24-hour a day, seven days a week, management of both multifamily and commercial assets. Our seasoned professionals understand the value of earning and maintaining the trust of our residents, tenants, clients and vendors. This value is specifically evident in the long-term relationships we have with customers and suppliers as well as the superior performance of the properties we manage. With an experienced management team and an extensive track record of creating value in real estate, Blue Box takes over the daily stresses of managing real estate while offering our owners and investors the opportunity for enhanced returns.",
+    "Blue Box Management systematically oversees the physical condition and financial operation of each property. We provide the same high quality services to all clients regardless of the size of the asset. Blue Box Management uses of the industry's leading software programs which allows for the most effective revenue and expense tracking along with corresponding data analytics. We pride ourselves on improving the performance of each property in all areas while providing clients with transparent, up-to-date reporting.",
+  ],
+  categories: [
+    {
+      title: "Multi-Family Property Management",
+      items: [
+        "Daily operations, resident relations, and full service maintenance",
+        "Rent collection, tracking, and coordination of legal filings",
+        "Vendor and Contractor Management – developing and maintaining contracts and relationships",
+        "Human Resource Management – hiring, coaching, motivating and supervising personnel",
+        "Time keeping and payroll services",
+      ],
+    },
+    {
+      title: "Leasing and Marketing",
+      items: [
+        "Customer Relationship Management using state of the art software",
+        "Data driven, professional, and innovative rent pricing analyses, strategies, and consistent implementation",
+        "Detailed marketing plans to attract new residents and tenants",
+        "Strategic retention activities to reduce turnover",
+        "Facilitation of tenanting commercial space using brokerage services",
+      ],
+    },
+    {
+      title: "Inspection, Maintenance and Value-Add Improvements",
+      items: [
+        "Overseeing local and state required inspections",
+        "Repairs for general and emergency maintenance issues (24-hours/day)",
+        "Preparing rental space for residential and commercial customers",
+        "Weekly inspections of assets and move-in / move-out inspection reports",
+        "Development and execution of value-add improvement plans and capital improvements",
+      ],
+    },
+    {
+      title: "Financial Management and Reporting",
+      items: [
+        "Competitively bidding and tracking of contracts",
+        "Annual, or more frequent, budgeting for revenue and expenses",
+        "Monthly operating statements with variance reporting",
+        "Processing of invoices and CAM invoicing of tenants",
+        "On staff Certified Public Accountants and liaisons with outside accounting services",
+      ],
+    },
+    {
+      title: "Management of Legal Services, Compliance, and Insurance",
+      items: [
+        "Address compliance with Federal, State, and municipal requirements",
+        "Coordinating Legal services to manage all types of resident and tenant issues",
+        "Coordinating efforts to gain municipal approvals",
+        "Guide annual mortgage inspection compliance efforts",
+        "Insurance coverage auditing and provision of program recommendations, (e.g., coverage, brokerage, and Insurers). Assist with addressing claims and loss control requirements",
+      ],
+    },
   ],
 };
 
@@ -247,15 +330,45 @@ export const propertyCategories: PropertyCategory[] = [
     intro: PLACEHOLDER("Commercial Properties page intro copy — verify against sherrdev.com/commercial-properties/"),
     listings: [],
   },
-  {
-    slug: "joint-venture",
-    title: "Sherr Joint Venture",
-    intro: PLACEHOLDER(
-      "Draft only, verify wording: Sherr Joint Ventures (SJV) offers capital and assistance to third parties in real estate ventures — budget/marketing strategy analysis, plus capital and talent to complete projects."
-    ),
-    listings: [],
-  },
 ];
+
+/**
+ * Confirmed verbatim from screenshots of sherrdev.com/sherr-joint-venture/
+ * (client-supplied, 2026-07-18). Has its own page/layout rather than the
+ * generic PropertyCategoryPage template — it's an editorial page (mission +
+ * named scenarios), not a property listing grid.
+ */
+export const jointVenture = {
+  heading: "Joint Venture",
+  whoWeAre: {
+    heading: "Who We Are",
+    paragraphs: [
+      'Sherr Joint Ventures ("SJV") is a division of Sherr Development Corporation which offers capital and assistance to third parties in real estate ventures. Under SJV, the professionals at SDC can analyze the budget and marketing strategy for your project, help with changes and recommendations, and provide the necessary capital and talent to complete the project.',
+    ],
+    leadIn: "The primary types of scenarios in which the SJV structure works, are as follows:",
+  },
+  scenarios: [
+    {
+      title: "Land Development",
+      text: "The owner(s) of vacant land would like to participate in the development of the property but do not have the capital. Under SJV, ownership can partner with us and we bring the capital and expertise for development of the residential, multifamily, or commercial project.",
+    },
+    {
+      title: "Project Completion",
+      text: "A real estate project has been started but additional capital is required. The project may be over budget or simply needing additional marketing talent or capital for upgrades or completion. In either case, the SJV structure brings the capital and expertise to partner with existing ownership and ensure that the project is successful. In many instances, SJV can help the initial owners avoid a forced sale.",
+    },
+    {
+      title: "Estate Planning",
+      text: "When ownership would like to sell, but tax consequences make a conventional sale too costly, SJV can help to restructure the financing and recapitalize the property such that: (1) distributable funds can be made immediately available to ownership; (2) the project can receive the capital it may need for further improvements or upgrades; and (3) tax consequences can be either eliminated or significantly improved. SJV can also assist in situations where ownership of a property consists of several partners which have different tax consequences upon a sale. Under this scenario, not all partners may have the same motivation to sell. SJV can restructure the partnership and achieve an effective sale for some partners and provide a tax-free distribution to others with continued ownership participation. The restructuring of course will depend on the facts and circumstances of each situation.",
+    },
+  ],
+  mission: {
+    heading: "Our Mission",
+    paragraphs: [
+      "Under SJV our mission is simple: to ensure that a real estate project is successful for ownership. By investing in a project and having a stake in its success, we make certain that our interests and existing ownership interests are aligned. Not all projects are suited or qualify for SJV involvement; however, when the joint venture makes sense and we are involved, we can make sure the project will overcome road blocks that often get in the way.",
+      "The professionals at SDC are trained in law, accounting, finance, land development and construction. Over the past thirty years, the company has successfully developed land for and constructed thousands of residential homes, major shopping centers and multifamily communities. With an educated and experienced professional staff combined with a strong capital position, we would welcome the opportunity to evaluate a joint venture real estate project with you.",
+    ],
+  },
+};
 
 export const galleryIntro = PLACEHOLDER(
   "Gallery page — no real project photos supplied yet. Send photos and we'll build this out."
