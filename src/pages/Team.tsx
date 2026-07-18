@@ -2,6 +2,33 @@ import { useRef, useState } from "react";
 import { PageHeader } from "../components/PageHeader";
 import { team, teamHeading, type TeamMember } from "../content/content";
 
+function easeInOutCubic(t: number) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+/** Custom eased scroll (longer + gentler than the browser's native "smooth" scroll). */
+function smoothScrollToCenter(el: HTMLElement, duration = 700) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    el.scrollIntoView({ block: "center" });
+    return;
+  }
+
+  const rect = el.getBoundingClientRect();
+  const startY = window.scrollY;
+  const targetY = startY + rect.top - (window.innerHeight - rect.height) / 2;
+  const diff = targetY - startY;
+  let startTime: number | null = null;
+
+  function step(timestamp: number) {
+    if (startTime === null) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    window.scrollTo(0, startY + diff * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
 export function Team() {
   return (
     <div>
@@ -25,11 +52,11 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
     const next = !open;
     setOpen(next);
     if (next) {
-      // Wait for the bio to render/expand before scrolling, so the whole
+      // Wait for the bio to render/expand before measuring, so the whole
       // card (including the newly revealed text) ends up in view instead
       // of getting cut off below the fold.
       requestAnimationFrame(() => {
-        cardRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        if (cardRef.current) smoothScrollToCenter(cardRef.current);
       });
     }
   };
@@ -39,6 +66,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
       <img
         src={member.photo}
         alt={member.name}
+        style={{ objectPosition: "50% 20%" }}
         className="h-24 w-24 shrink-0 rounded-full object-cover"
       />
       <div className="min-w-0 flex-1">
