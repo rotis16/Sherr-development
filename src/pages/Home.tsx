@@ -50,10 +50,8 @@ export function Home() {
 
               <div className="mt-10 flex flex-wrap gap-x-12 gap-y-6 border-t border-stone-300 pt-8">
                 <div>
-                  <div className="font-display text-4xl font-medium text-ink">90+</div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wide text-ink-soft/70">
-                    Years, Combined Team Experience
-                  </div>
+                  <div className="font-display text-4xl font-medium text-ink">2,000+</div>
+                  <div className="mt-1 text-xs font-medium uppercase tracking-wide text-ink-soft/70">Homes Built</div>
                 </div>
                 <div>
                   <div className="font-display text-4xl font-medium text-ink">{projectLocations.length}</div>
