@@ -8,18 +8,27 @@ export function PropertyCategoryPage({ category }: { category: PropertyCategory 
     <div>
       <PageHeader title={category.title} />
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-        <div className="max-w-2xl text-[17px] leading-relaxed text-ink-soft/90">
-          <Copy text={category.intro} />
-        </div>
+        {category.intro && (
+          <div className="max-w-2xl text-[17px] leading-relaxed text-ink-soft/90">
+            <Copy text={category.intro} />
+          </div>
+        )}
 
         {category.listings.length > 0 ? (
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className={`grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14 ${category.intro ? "mt-12" : ""}`}>
             {category.listings.map((listing) => (
-              <div key={listing.name} className="border-t border-stone-200">
-                <PlaceholderImage label="Property photo" className="h-40 w-full" />
-                <div className="pt-4">
-                  <h3 className="font-display font-medium text-ink">{listing.name}</h3>
-                  <p className="text-sm text-ink-soft/70">{listing.location}</p>
+              <div key={listing.name}>
+                <PlaceholderImage label={`${listing.name} — property photo`} className="aspect-[3/2] w-full" />
+                <div className="mt-5">
+                  <h3 className="font-display text-lg font-medium text-ink">{listing.name}</h3>
+                  <p className="mt-0.5 text-sm font-medium uppercase tracking-wide text-bronze-600">
+                    {listing.location}
+                  </p>
+                  <div className="mt-3 space-y-3 text-sm leading-relaxed text-ink-soft/85">
+                    {listing.description.map((paragraph, i) => (
+                      <p key={i}>{paragraph}</p>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}

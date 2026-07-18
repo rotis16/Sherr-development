@@ -305,7 +305,7 @@ export type PropertyCategory = {
   title: string;
   intro: string;
   // Real property/project names go here once supplied — deliberately empty now.
-  listings: { name: string; location: string }[];
+  listings: { name: string; location: string; description: string[] }[];
 };
 
 export const propertyCategories: PropertyCategory[] = [
@@ -318,10 +318,43 @@ export const propertyCategories: PropertyCategory[] = [
   {
     slug: "multifamily-housing",
     title: "Multifamily Housing",
-    intro: PLACEHOLDER("Apartments page intro copy — verify against sherrdev.com/apartments/"),
+    // The real page (sherrdev.com/apartments/) has no intro copy — it goes
+    // straight from the heading into the property listings below.
+    intro: "",
     listings: [
-      // Confirmed a real property page exists: sherrdev.com/mapletree-apartments/
-      // Name only, no description yet — do not invent details.
+      {
+        name: "Maple Place Apartments",
+        // Heading on the real page says "262 Units"; the listing's own body
+        // copy says "a total of 232 units" — a mismatch on the live site
+        // itself, transcribed verbatim rather than guessed at. Flag to the
+        // client to confirm the real unit count.
+        location: "262 Units, Southfield, MI",
+        description: [
+          "Maple Place was acquired out of foreclosure with a total of 232 units. The property was in a good location with proximity to major east-west and north-south expressways. The one, two, and three bedroom units were large with good closet space. While the location and floor plans were good, the property was in a state of decline from years of neglect by earlier ownership and mismanagement by a third-party foreclosure manager.",
+        ],
+      },
+      {
+        name: "Corner Place Apartments",
+        location: "211 Units, Southfield, MI",
+        description: [
+          'This property consists of 211 garden-style and townhouse units located at a busy intersection on the border of Beverly Hills and Birmingham. The property was acquired in 2015 from the family that originally constructed the project and owned it for thirty years thereafter. While the property was well managed and well maintained, the team at SDC identified a number of "game-changing" improvements that would uniquely distinguish the property and reposition the asset.',
+        ],
+      },
+      {
+        name: "Pine Ridge Apartments",
+        location: "120 Units, Southfield, MI",
+        description: [
+          "Pine Ridge was acquired out of foreclosure in 2012. At the time of acquisition, balconies were in disrepair, there was no formal leasing office and the buildings themselves were in a state of decline.",
+          "Immediately after the acquisition, SDC engaged a capital improvement program to repair and replace all problem balconies, remove all warped and decaying T1-11 siding from the buildings, and replace and repaint all newly installed wood siding along with replacing gutters throughout.",
+        ],
+      },
+      {
+        name: "Biscayne Towers",
+        location: "402 Units, North Miami, Florida",
+        description: [
+          "In 2013, SDC paid $6.9 million for a highly visible seven acre parcel of vacant land on Biscayne Boulevard. The property was not zoned for development but was in an excellent location near a new Whole Foods, Home Depot, Walgreens and other good commercial tenants.",
+        ],
+      },
     ],
   },
   {
