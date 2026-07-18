@@ -310,12 +310,6 @@ export type PropertyCategory = {
 
 export const propertyCategories: PropertyCategory[] = [
   {
-    slug: "single-family-homes",
-    title: "Single Family Homes and Attached Condos",
-    intro: PLACEHOLDER("Homes page intro copy — verify against sherrdev.com/homes/"),
-    listings: [],
-  },
-  {
     slug: "multifamily-housing",
     title: "Multifamily Housing",
     // The real page (sherrdev.com/apartments/) has no intro copy — it goes
@@ -416,6 +410,194 @@ export const jointVenture = {
       "Under SJV our mission is simple: to ensure that a real estate project is successful for ownership. By investing in a project and having a stake in its success, we make certain that our interests and existing ownership interests are aligned. Not all projects are suited or qualify for SJV involvement; however, when the joint venture makes sense and we are involved, we can make sure the project will overcome road blocks that often get in the way.",
       "The professionals at SDC are trained in law, accounting, finance, land development and construction. Over the past thirty years, the company has successfully developed land for and constructed thousands of residential homes, major shopping centers and multifamily communities. With an educated and experienced professional staff combined with a strong capital position, we would welcome the opportunity to evaluate a joint venture real estate project with you.",
     ],
+  },
+};
+
+export type SingleFamilyListing = {
+  name: string;
+  location: string;
+  description: string[];
+  jointVentureNote?: string;
+};
+
+/**
+ * Confirmed verbatim from screenshots of sherrdev.com/homes/ (client-supplied,
+ * 2026-07-18). Its own page/content shape rather than the generic
+ * PropertyCategory template — the real page has two named sections (new/
+ * current vs. past) and a non-project regional summary mixed into the
+ * second, none of which the flat listings grid used elsewhere fits.
+ * A couple of obvious typos on the live site ("shopps", "nestors") are kept
+ * verbatim rather than silently corrected.
+ */
+export const singleFamilyHomes = {
+  heading: "Single Family Homes and Attached Condos",
+  newCommunities: {
+    heading: "New and Current Communities",
+    intro:
+      "Sherr is currently entitling several new residential communities in highly desirable parts of southeast Michigan. These new communities will each have uniquely improved floor plans, attractive selections on elevation, and benefit from the many custom choices for interior materials and features that characterize every new residential community developed by Sherr.",
+    listings: [
+      {
+        name: "Orion Ridge",
+        location: "Duplex Residential Condominium Community in Orion, MI",
+        description: [
+          "Orion Ridge is located on the heavily traveled Baldwin Rd. corridor in one of the nicest suburban communities of southeast Michigan. The thirteen acre site, assembled with the purchase of four separate parcels, is designed with duplex ranch-style condominiums targeted toward empty nesters and young families. Maintenance free living, with lawn care and snow removal services performed for all residents, is part of the appeal of this new community. Additional features include the site's location itself which is walking distance to Walgreens, a local bank, other neighborhood shopps and a short drive to the famous Great Lakes Crossing Mall.",
+        ],
+      },
+      {
+        name: "Farmington Reserves",
+        location: "19 Single Family Homes, Farmington Hills, MI",
+        description: [
+          "Farmington Reserves is located in one of the best school districts in Oakland County, and very close to the desirable attractions of downtown Farmington. With only 19 homes in a community where the demand for homes far exceeds supply, sales in this community at prices averaging in the $500s, are anticipated to be fast. Homes styles offered will include a ranch with approximately 1,800 square feet, and several colonial plans which range in size from 2,000 to 2,500 square feet. As typical of homes offered by Sherr, there will be many upgrades and options for interior materials and finishes, along with the ability to provide for modest custom requests.",
+        ],
+      },
+      {
+        name: "Residential Towers",
+        location: "364 Condominium Units, Miami, FL",
+        description: [
+          "This exciting new residential development will consist of two residential towers with a total of 364 units, located on one of the most attractive parts of the intercoastal in Miami. Each tower will be 42 stories with structured parking for over 800 cars and an extensive amenity package. Views north along the intercoastal through Bal Harbor and south into downtown Miami, will be amazingly unobstructed. Along with attractive open floorplans featuring floor-to-ceiling windows, the development will have available 35 boat slips, which is rare in a development of this kind.",
+          "Our development partner represents the largest development name in south Florida, who also has major developments around the world. This name recognition combined with the flag of a major name in the hospitality business, is certain to resonate with the target market of both international and domestic buyers. For Sherr, the Florida market is not new; however, to participate in this type of development with a team that is unmatched in experience and talent represents a truly unique opportunity that we are enthusiastic to pursue.",
+        ],
+      },
+      {
+        name: "Village of Clawson",
+        location: "39 Single Family Homes, Clawson, MI",
+        description: [
+          "The Village of Clawson will provide an exciting opportunity for new home buyers in the highly desirable community of Clawson. With a total of 39 homes, this will be the largest new residential development in the city in many years. Homes will range in size from 1,800 square feet to 2,600 square feet, with prices expected to start in the $500s. The homes will feature fresh elevations, multiple selections for appliances, plumbing and lighting fixtures, and many options on flooring, cabinetry including several choices on stone and quartz countertops.",
+        ],
+        jointVentureNote: "This project is being developed and constructed as a joint venture between Robertson Homes and Sherr.",
+      },
+      {
+        name: "Ann Arbor Woods",
+        location: "35 Ranch-style homes, Ann Arbor, MI",
+        description: [
+          "This attractive community of ranch-style homes is targeted to appeal to move-up buyers and empty nestors seeking maintenance-free living on a single floor without the need to climb stairs. Many families in Ann Arbor have now experienced young ones moving out on their own leaving them with reduced space needs. The opportunity to purchase a new home, right sized with the master bedroom on the main floor, provides the perfect answer for these families who now seek to downsize. These new ranches will feature multiple choices for appliances, plumbing and electrical fixtures. Other options will be available for trim, door style, wood flooring, cabinetry and stone countertops. With a location that is walking distance to Buhr Park, and in close proximity to downtown Ann Arbor, this new residential community is certain to experience great interest and strong demand.",
+        ],
+        jointVentureNote: "This project is being developed and constructed as a joint venture between Robertson Homes and Sherr.",
+      },
+    ] satisfies SingleFamilyListing[],
+  },
+  pastCommunities: {
+    heading: "Past Communities",
+    listings: [
+      {
+        name: "Emerald Park",
+        location: "44 Single Family Homes, Farmington Hills, MI",
+        description: [
+          "This 20 acre site is located on an infill parcel in the heart of one of the most attractive residential communities in Southeast, MI. The site was approved under the cluster option for single-family homes on 55 ft. lots. The home plans would range in size from a ranch with 1,680 sf to two-story colonials with up to 2,800 sf. Ultimately, prior to construction beginning, the site was purchased by Pulte Homes for its unique characteristics and extremely favorable demographics. While Sherr Development was not responsible for the construction and the sale of homes, the sale price of the property to Pulte provided a very attractive return on the investment made by Sherr.",
+        ],
+      },
+      {
+        name: "Lyndon Park",
+        location: "39 Lot Single Family Community, Livonia, MI",
+        description: [
+          "Lyndon Park is a new 39-home residential community located in the highly acclaimed Livonia School District. While wet conditions and cold weather slowed initial development activity, ultimately the homes were constructed and sold in record time. The homes were targeted toward families seeking value and design, with features and amenities that include home offices, open kitchens, 9 ft first floor ceilings, stainless steel appliances, and many other selections for wide plank flooring, stone countertops and cabinetry. To offer the most up-to-date technology in our homes, other features included phone-controlled security systems and thermostats, and smart appliances.",
+        ],
+      },
+      {
+        name: "Newport Estates",
+        location: "187 Lot Single Family Community, Newport, MI",
+        description: [
+          "This 187 lot community, which was constructed in three phases, is now sold out. The homes at Newport range in size from 1,500 sf to 2,100 sf and range in price from the mid-$100s to the low $200s. Designed to provide attractive new homes at affordable prices, Newport appealed well to both first-time home buyers and move-up home buyers.",
+          "The site plan at Newport consists of 65 ft. lots with a centralized area for mail boxes and a play park. By clustering mail boxes in one area and creating a common park amenity, we have eliminated the street clutter from a multitude of mailbox styles and colors and tried to minimize the need for each homeowner to invest in backyard swing sets and play structures.",
+          "Newport Estates is the most successful residential development in Monroe County. With a tax millage rate that is one of the lowest in southeast Michigan, and a location that benefits from being in the attractive Airport School District, the community continues to appeal to homebuyers seeking quality and affordability in their home buying decision.",
+        ],
+      },
+      {
+        name: "Cove Creek",
+        location: "Single Family Homes and Condominiums, Taylor, MI",
+        description: [
+          "Cove Creek consists of two distinct residential communities on a single site: 23 single family homes on the north part of the property and 20 duplex condominiums on the south part. The site was designed such that the single family homes are separated from the condominiums by a creek and natural woodland that traverses the site. Each community has its own well defined entrance connected by perimeter landscaping which harmonizes and beautifies the overall appeal of the site. The site sold out quickly with both the homes and condominiums targeted toward move-up buyers and empty nesters.",
+        ],
+      },
+      {
+        name: "Whetherstone Condominiums",
+        location: "White Lake Township, MI",
+        description: [
+          "Whetherstone consists of 111 attached condominiums in a series of two, three, four and five-unit buildings. The units themselves offer two different floorplans: a ranch with approximately 1,500 sq.ft. for those wishing to eliminate stairs; and a townhome with approximately 1,300 sq.ft. targeting younger individuals less concerned about having a staircase within the unit. The site is located in North Oakland County surrounded by lakes and within walking distance to neighborhood shops. With quality design and excellent construction, the site sold out within two years of opening at prices in the mid-to-high $100s.",
+        ],
+      },
+      {
+        name: "Auburn Park Condominiums",
+        location: "Auburn Hills, MI",
+        description: [
+          "Designed by an award-winning architectural firm in Chicago, the 123 unit condominium community offered six different floor plans in a series six-unit buildings. With each floor plan targeting a distinctly different lifestyle, Auburn Park was able to appeal to a broad demographic of condominium buyers.",
+          "Auburn Park opened for sales in early 2005 with prices starting in the mid-$100s. The community sold out quickly with final sales and construction completed within three years. Today Auburn Park is one of the most distinguished condominium communities in Auburn Hills with a landscaped entrance that commands strong appeal along the Baldwin Road corridor.",
+        ],
+      },
+      {
+        name: "Coachlight Condominiums",
+        location: "Taylor, MI",
+        description: [
+          "Coachlight is a condominium community consisting of 102 units in a series of two, three and four-unit buildings. The ranch and townhome style floor plans were designed to appeal to empty nesters, single parents, divorcees and young professionals. With quality design and excellent construction, this site was sold out within two years of opening at prices in the high $100s. Today, Coachlight is one of the largest and most distinguished condominium communities in the City.",
+        ],
+      },
+      {
+        name: "Heatherwood and Woods of Pardee",
+        location: "Taylor, MI",
+        description: [
+          "These two single family communities were each targeted to appeal to move-up homebuyers within the community. Heatherwood consists of 33 homes and Woods of Pardee consists of 42 homes. Both sites sold out quickly after opening at prices in the low $200s. Quality construction and strong architectural appeal distinguish both communities today within the move-up residential housing category of the City.",
+        ],
+      },
+      {
+        name: "Sunrise Oceanfront",
+        location: "The Big Island, Hawaii",
+        description: [
+          "In 2006, from the assemblage of private property owned by four separate landowners, SDC purchased approximately 4 miles of oceanfront property on the island. The plan was to entitle the land for up to two thousand homes for sale on a part of the island that previously was relatively undeveloped.",
+          "In 2008, prior to completion of the entitlement process, SDC received an unsolicited offer to purchase the property for three times the price that had been paid. SDC accepted the offer allowing for a substantial return on its initial investment.",
+        ],
+      },
+      {
+        name: "Mountain Ranch Estates",
+        location: "Salt Lake City, Utah",
+        description: [
+          "In 2004, SDC along with a west coast partner, purchased a 40-acre site located on the side of the mountain outside of Salt Lake City. The land was entitled and developed for lot sales to buyers interested in building large estate-size homes on the mountain. The lots were sold in a systematic fashion shortly after development was completed generating a substantial return on investment for both SDC and our development partner.",
+        ],
+      },
+      {
+        name: "Sherwood Hills",
+        location: "Grand Blanc, MI",
+        description: [
+          "Sherwood Hills consists of 102 single family homes just outside of the main commercial corridor of Grand Blanc. The site was developed in three separate phases to coordinate the timing of the investment in land development with home sales. Affordable pricing, excellent floorplans, and distinguished architecture are three of the primary features for the successful sellout at Sherwood Hills.",
+        ],
+      },
+      {
+        name: "Hunter's Point Condominiums",
+        location: "Westland, MI",
+        description: [
+          "Hunter's Point consists of 114 attached condominiums in a series of two, four, and six-unit buildings. The ranch and townhome style floor plans were designed to appeal to singles, young couples, divorcees, and empty nesters. Hunter's point was developed on an infill site within walking distance of the major shopping district of the City. The site was constructed in two separate phases and sold out within three years after construction commenced.",
+        ],
+      },
+      {
+        name: "Glenwood Hills",
+        location: "Walled Lake, MI",
+        description: [
+          "Glenwood Hills consists of 41 single family homes on a rolling and wooded site. The homes were targeted toward first-time homebuyers seeking to live in the excellent Walled Lake School District. The site sold out quickly with reservations for thirty percent of the homes having been taken immediately after the sales office opened.",
+        ],
+      },
+      {
+        name: "Knowland Estates",
+        location: "Canton, MI",
+        description: [
+          "Great schools and a great location made Knowland Estates a very desirable single family community. The site consists of 75 homes on 70 ft. lots. The site was developed in a single phase with all homes sold within two years after opening the model sales office. A second phase with 14 homes was added at a later date with the purchase of a small parcel immediately adjacent to the site. This second phase, Knowland on the Court, was very successful with significant economies of scale from its proximity to Knowland Estates.",
+        ],
+      },
+      {
+        name: "Pittsfield Glens",
+        location: "98 Single-family Homes and 56 Attached Condominiums, Pittsfield Township, MI",
+        description: [
+          "The land for Pittsfield Glens was purchased to create a unique residential community in the highly acclaimed Ann Arbor, MI School District. The community was designed with a combination of 98 single family home sites and 56 attached condominiums. While the site plan was difficult to approve in this municipality, ultimately the community was approved and the fully entitled site was sold to Pulte Homes. The price realized by SDC provided a timely and extraordinary return on its investment.",
+        ],
+      },
+    ] satisfies SingleFamilyListing[],
+    // Not a named project — a regional rollup paragraph the real page drops
+    // into the middle of the Past Communities list. Called out separately
+    // here so the page can render it as a note rather than a project card.
+    regionalNote: {
+      heading: "California Housing Activity",
+      paragraphs: [
+        "Sherr Development has developed residential land and constructed over one thousand homes in southern California. Working with a local builder, SDC was able to identify attractive residential sites outside of LA County and build multiple residential communities. The development activity in California spanned an approximate ten year period from 1998 to 2008. Each site consisted of 50 to 300 homes with prices and floorplans targeted toward first-time homebuyers. All land development activity has now been completed and all homes on developed lots have been constructed and sold. As SDC continues to hold several parcels of undeveloped land in southern California, development and construction activity may begin again as market conditions permit.",
+      ],
+    },
   },
 };
 
