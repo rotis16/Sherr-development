@@ -1,8 +1,62 @@
-import { propertyCategories } from "../content/content";
-import { PropertyCategoryPage } from "./PropertyCategoryPage";
+import { PageHeader } from "../components/PageHeader";
+import { PlaceholderImage } from "../components/PlaceholderImage";
+import { commercialProperties, type CommercialListing } from "../content/content";
 
 export function CommercialProperties() {
+  const { netLeasedPortfolio, properties } = commercialProperties;
+
   return (
-    <PropertyCategoryPage category={propertyCategories.find((c) => c.slug === "commercial-properties")!} />
+    <div>
+      <PageHeader title={commercialProperties.heading} />
+
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+        <section className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-7">
+            <div className="mb-4 h-px w-12 bg-bronze-500" />
+            <h2 className="font-display text-2xl font-medium leading-snug text-ink">
+              {netLeasedPortfolio.heading}
+            </h2>
+            <div className="mt-6 max-w-2xl space-y-5 text-[17px] leading-relaxed text-ink-soft/90">
+              {netLeasedPortfolio.paragraphs.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col justify-center border-t border-stone-200 pt-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:pl-14 lg:pt-0">
+            <div className="font-display text-5xl font-medium text-ink">{netLeasedPortfolio.stat.value}</div>
+            <div className="mt-2 text-sm font-medium uppercase tracking-wide text-ink-soft/70">
+              {netLeasedPortfolio.stat.label}
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-20 border-t border-stone-200 pt-16">
+          <h2 className="font-display text-2xl font-medium leading-snug text-ink">{properties.heading}</h2>
+
+          <div className="mt-10 grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14">
+            {properties.listings.map((listing) => (
+              <ListingCard key={listing.name} listing={listing} />
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+function ListingCard({ listing }: { listing: CommercialListing }) {
+  return (
+    <div>
+      <PlaceholderImage label={`${listing.name} — property photo`} className="aspect-[3/2] w-full" />
+      <div className="mt-5">
+        <h3 className="font-display text-lg font-medium text-ink">{listing.name}</h3>
+        <p className="mt-0.5 text-sm font-medium uppercase tracking-wide text-bronze-600">{listing.location}</p>
+        <div className="mt-3 space-y-3 text-sm leading-relaxed text-ink-soft/85">
+          {listing.description.map((paragraph, i) => (
+            <p key={i}>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }

@@ -367,12 +367,6 @@ export const propertyCategories: PropertyCategory[] = [
       },
     ],
   },
-  {
-    slug: "commercial-properties",
-    title: "Commercial Properties and Net Investments",
-    intro: PLACEHOLDER("Commercial Properties page intro copy — verify against sherrdev.com/commercial-properties/"),
-    listings: [],
-  },
 ];
 
 /**
@@ -598,6 +592,98 @@ export const singleFamilyHomes = {
         "Sherr Development has developed residential land and constructed over one thousand homes in southern California. Working with a local builder, SDC was able to identify attractive residential sites outside of LA County and build multiple residential communities. The development activity in California spanned an approximate ten year period from 1998 to 2008. Each site consisted of 50 to 300 homes with prices and floorplans targeted toward first-time homebuyers. All land development activity has now been completed and all homes on developed lots have been constructed and sold. As SDC continues to hold several parcels of undeveloped land in southern California, development and construction activity may begin again as market conditions permit.",
       ],
     },
+  },
+};
+
+export type CommercialListing = { name: string; location: string; description: string[] };
+
+/**
+ * Confirmed verbatim from screenshots of sherrdev.com/commercial-properties/
+ * (client-supplied, 2026-07-18). Own content shape rather than the generic
+ * PropertyCategory template — the real page opens with a portfolio-level
+ * overview and a single rollup stat (no per-category breakdown, so a plain
+ * stat tile rather than a chart) before the named property listings.
+ *
+ * Two naming mismatches on the live site itself, kept verbatim: the "Corner
+ * Place Shopping Center" heading vs. "Country Corner Shopping Center" in its
+ * own body copy, and "Hunter's Square" vs. "Hunter Square".
+ */
+export const commercialProperties = {
+  heading: "Commercial Properties and Net Investments",
+  netLeasedPortfolio: {
+    heading: "Net Leased Portfolio",
+    paragraphs: [
+      "A portfolio of double net and triple net leases with a dependable cash flow from tenants consisting of Starbucks and Dollar General Stores. The stores in this portfolio are located in Michigan and Ohio and provide a durable cash flow with a return on investment exceeding 18 percent. At SDC, we continue to evaluate acquisition opportunities in the net leased store space where attractive rates of return can be created or financially engineered.",
+    ],
+    stat: { value: "$200M+", label: "In Transaction Value Created" },
+  },
+  properties: {
+    heading: "Commercial Properties",
+    listings: [
+      {
+        name: "14-Orchard Plaza",
+        location: "37,500 sq. ft. | Farmington Hills, MI",
+        description: [
+          "This neighborhood shopping center was constructed by Sherr Development at the corner of two of the busiest roads in Farmington Hills. Originally, the land under this center was occupied exclusively by a free-standing commercial bank. The bank was purchased with the objective of increasing yield on the property by replacing the bank with a larger retail center which would include the bank as one of several new tenants. Tenants today include Office Depot, Hand & Stone Massage, Orange Theory Fitness and Aqua-tots swim school.",
+        ],
+      },
+      {
+        name: "Corner Place Shopping Center",
+        location: "53,000 sq.ft. | Southfield, MI",
+        description: [
+          "Country Corner Shopping Center consists of 53,000 sq. ft. of multi-tenant space anchored by a free-standing CVS and a variety of inline stores including Little Caesars Pizza, O'Reilly Auto Parts, and Rose Cleaners. The shopping center is located along the heavily traveled Southfield Road corridor and surrounded by a multitude of densely populated relatively high-income neighborhoods. The center is undergoing a transformation at this time whereby new tenants and a new facade will contribute to Center's ongoing success and record operating results.",
+        ],
+      },
+      {
+        name: "Hunter's Square Shopping Center",
+        location: "360,000 sq.ft. | Farmington Hills, MI",
+        description: [
+          "Hunter's Square originally existed as two separate shopping centers, separated only by a large detention pond. The first center with a dated appearance consisted of multiple buildings with garden walkways between the buildings in a life-style orientation. The second center was laid out in a traditional in-line store format. While the properties were located on a major road in an area with excellent demographics, they each were in a state of decline that ultimately ended for each in foreclosure.",
+          "With a strategy to reconfigure the property and ultimately add value, Sherr Development purchased Hunter Square out of foreclosure for a price of $12 million. The strategy involved several steps. First, several interior buildings were knocked down in order to allow the remaining stores to have a direct view to the street. Second, the parking lot was expanded to bring parking closer to store fronts. Third, a detention pond between the two centers was relocated to an underground tank, allowing for a driveway and walkway connection to facilitate cross-traffic between the two centers. Finally, tenant spaces were redesigned to allow for big box users which included Bed Bath & Beyond, TJ Max, Marshalls, GAP, and many more.",
+          "Once the value add strategy was completed Sherr Development sold the shopping center to Ramco-Gershenson, a national publicly traded real estate investment trust, for $128 million (see below as Winchester Mall was also included in this package sale). The value created from this transaction was significant and the return on investment was exceptional.",
+        ],
+      },
+      {
+        name: "Winchester Mall",
+        location: "320,000 sq.ft. | Rochester Hills, MI",
+        description: [
+          "Winchester Mall originally existed as an enclosed mall along the major Rochester Rd. corridor in Rochester Hills. While the demographics in the area were strong and the mall was well known, a poor interior configuration and high common area expense resulted in low traffic and mediocre store performance. Ultimately, Winchester ended up in foreclosure by a Chicago bank that wanted an immediate sale of the mall whose occupancy continued to decline.",
+          "Sherr Development purchased the property from the bank for $9 million with a plan to de-mall the building and eliminate the enclosed common area. By opening up the building such that all stores would face the street, SDC would make the stores more visible and significantly reduce common area expense. The decision to reconfigure the mall was carefully analyzed and executed. In the end, the decision proved correct as big box tenants like Bed Bath & Beyond, Marshalls, Dicks Sporting Goods and PetSmart were eager to take space. Spaces for smaller tenants were also made available at the right and left legs of the center which were constructed as part of the redevelopment.",
+          "In a package that included Hunter's Square, Sherr sold the revitalized Winchester Mall for $128 million. The value created in the redevelopment of each center was significant. The return on investment from this transaction was exceptional.",
+        ],
+      },
+      {
+        name: "Joy-Beech Corners",
+        location: "24,000 sq.ft. | Redford, MI",
+        description: [
+          "This small shopping center was reconfigured from an old automotive body shop which was closed and unoccupied at the time of purchase. Today, the center is very successful with tenants that include Secretary of State, Subway, and Dollar General.",
+        ],
+      },
+      {
+        name: "Frank's Nursery & Crafts",
+        location: "36 Stores | Midwest",
+        description: [
+          "Developed, constructed, and managed multiple locations throughout the Midwestern United States. Stores were constructed in both free-standing and multi-tenant configurations. The 36 stores owned and operated by Sherr Development were part of the larger 150-store Frank's Nursery garden center chain.",
+        ],
+      },
+      {
+        name: "K-Mart Shopping Center",
+        location: "120,000 sq.ft | Clinton Township, MI",
+        description: ["Developed neighborhood shopping center which included K-Mart and Frank's Nursery as primary tenants."],
+      },
+      {
+        name: "Hoover Road Warehouse",
+        location: "76,000 sq.ft. | Detroit, MI",
+        description: ["Acquired and renovated a 76,000 sq.ft. warehouse on Detroit's east side."],
+      },
+      {
+        name: "Office Building",
+        location: "7,400 sq.ft. | Farmington Hills, MI",
+        description: [
+          "Acquired and converted a bank building into a multi-tenant office building which includes E-Trade as a major tenant.",
+        ],
+      },
+    ] satisfies CommercialListing[],
   },
 };
 
