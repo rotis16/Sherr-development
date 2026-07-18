@@ -201,6 +201,28 @@ export const companyHistory = {
   ],
 };
 
+/** Confirmed verbatim from screenshots of sherrdev.com/company-profile/ (client-supplied, 2026-07-18). */
+export const companyProfile = {
+  heading: "Profile",
+  subheading: "We Concentrate on Adding Value to Identified Properties",
+  paragraphs: [
+    'Sherr Development Corporation ("SDC") is engaged in homebuilding including the design and development of single family and multi-family residential communities, commercial shopping center development, and property management. Since 1985, we have developed and managed over one million sq. ft. of commercial property and have developed, constructed, and sold over two thousand single family homes and condominiums. Commercial property development has ranged from small neighborhood shopping centers to large big-box regional power centers. Single family homes and condominiums have been constructed and sold in communities designed and developed by SDC.',
+    'Value creation is the primary criterion for each of our real estate investments. While everyone attempts to "buy low and sell high", we concentrate on identifying properties where we can create value either through building new residential communities in desirable areas or by repositioning an existing development with prudent upgrades. An example of repositioning is evidenced in our multifamily apartment portfolio. Our strategy is to purchase "C" properties with an average of 200 units, make targeted improvements that were not obvious or feasible by prior ownership, and convert them into "B" properties whereby rents and corresponding returns can be increased.',
+    "To date, the risk-adjusted returns on projects undertaken by SDC have been exceptional. The internal rate of return on residential home building projects has averaged in excess of 100 percent; the internal rate of return on the repositioning of commercial and multifamily properties has averaged in excess of 50 percent. Creating value with new development and unlocking value from existing developments will continue to be the primary objective of the team at SDC.",
+    "Geographically, SDC has focused on select markets within the United States. The primary areas have been in southeast Michigan and southern California; other areas of activity have included Utah, Hawaii, and Florida. With a proven ability to successfully invest and manage developments in different states, we will continue to explore new markets when opportunities are uncovered or presented.",
+  ],
+  valueCreated: {
+    headline: "Over $600 Million in Transaction Value Created by SDC",
+    // Amounts in millions, ordered high to low (matches the source graphic's slice order).
+    breakdown: [
+      { label: "Residential Home Sales", millions: 350 },
+      { label: "Commercial", millions: 210 },
+      { label: "Multifamily", millions: 46 },
+      { label: "Other", millions: 10 },
+    ],
+  },
+};
+
 export const heroImage = {
   src: null as string | null,
   // Confirmed subject from homepage screenshot: a city skyline over water
