@@ -9,29 +9,33 @@ export function CompanyProfile() {
       <PageHeader title={companyProfile.heading} subtitle={companyProfile.subheading} />
 
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-        <div className="max-w-3xl space-y-5 text-[17px] leading-relaxed text-ink-soft/90">
-          {companyProfile.paragraphs.map((paragraph, i) => (
-            <p key={i}>{paragraph}</p>
-          ))}
-        </div>
-      </div>
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-7">
+            <div className="max-w-2xl space-y-6 text-[17px] leading-relaxed text-ink-soft/90">
+              {companyProfile.paragraphs.map((paragraph, i) => (
+                <p key={i} className={i > 0 ? "border-t border-stone-200 pt-6" : undefined}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
 
-      <div className="border-t border-stone-200 bg-stone-100">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-          <ValueBreakdownBar
-            headline={companyProfile.valueCreated.headline}
-            breakdown={companyProfile.valueCreated.breakdown}
-          />
-        </div>
-      </div>
+          <div className="lg:col-span-5">
+            <div className="flex flex-col gap-8 border-t border-stone-200 pt-8 lg:sticky lg:top-24 lg:border-t-0 lg:pt-0 lg:pl-14 lg:border-l">
+              <ValueBreakdownBar
+                headline={companyProfile.valueCreated.headline}
+                breakdown={companyProfile.valueCreated.breakdown}
+              />
 
-      <div className="border-t border-stone-200">
-        <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
-          <img
-            src={projectLocationMap}
-            alt={`Project location map — ${projectLocations.join(", ")}`}
-            className="mx-auto w-full max-w-md"
-          />
+              <div className="border-t border-stone-200 pt-8 text-center">
+                <img
+                  src={projectLocationMap}
+                  alt={`Project location map — ${projectLocations.join(", ")}`}
+                  className="mx-auto w-full max-w-xs"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

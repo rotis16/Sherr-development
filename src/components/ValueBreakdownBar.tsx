@@ -30,7 +30,7 @@ export function ValueBreakdownBar({
         ))}
       </div>
 
-      <dl className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <dl className="mt-6 grid grid-cols-2 gap-4">
         {breakdown.map((item, i) => (
           <div key={item.label} className="flex items-start gap-2">
             <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${STEPS[i % STEPS.length]}`} />
