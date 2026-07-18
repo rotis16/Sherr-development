@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { PageHeader } from "../components/PageHeader";
-import { PlaceholderImage } from "../components/PlaceholderImage";
 import { team, teamHeading, type TeamMember } from "../content/content";
 
 export function Team() {
@@ -37,7 +36,11 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
 
   return (
     <div ref={cardRef} className="scroll-mt-24 flex gap-5 border-t border-stone-200 pt-6">
-      <PlaceholderImage label="Headshot" className="h-24 w-24 shrink-0 rounded-full text-[10px]" />
+      <img
+        src={member.photo}
+        alt={member.name}
+        className="h-24 w-24 shrink-0 rounded-full object-cover"
+      />
       <div className="min-w-0 flex-1">
         <h3 className="font-display text-lg font-medium text-ink">{member.name}</h3>
         <div className="mt-0.5 text-xs font-medium uppercase tracking-wide text-bronze-600">{member.title}</div>

@@ -23,6 +23,11 @@
  * ---------------------------------------------------------------------------
  */
 
+import stuartSherrPhoto from "../assets/team/stuart-sherr.jpeg";
+import rogerSherrPhoto from "../assets/team/roger-sherr.jpeg";
+import mikeKellyPhoto from "../assets/team/mike-kelly.jpeg";
+import josephInwaldPhoto from "../assets/team/joseph-inwald.png";
+
 /** Wraps text that has NOT been confirmed against the real site. */
 export const PLACEHOLDER = (label: string) => `[PLACEHOLDER: ${label}]`;
 
@@ -102,6 +107,7 @@ export type TeamMember = {
   name: string;
   title: string;
   bio: string;
+  photo: string;
 };
 
 /** Confirmed verbatim from a screenshot of sherrdev.com/ourteam/. */
@@ -120,21 +126,25 @@ export const team: TeamMember[] = [
     name: "Stuart D. Sherr",
     title: "Co-President",
     bio: "Stuart manages the land acquisitions, planning, development, engineering, budgeting and administration of all contracts, leases, and legal matters. Responsibilities also include the preparation of feasibility studies and extensive site plan analysis for both commercial and residential properties. Finally, for new developments Stuart works with municipalities and community groups to balance the needs and objectives of each project in order to achieve site plan approval. Educated in business, finance, accounting, and law, Stuart Sherr's credentials include a Bachelor of Science in Economics, with majors in Accounting and Finance from The Wharton School, University of Pennsylvania, a Juris Doctor degree from Wayne State Law School, a Certified Public Accountant license, and a real estate broker license.",
+    photo: stuartSherrPhoto,
   },
   {
     name: "Roger M. Sherr",
     title: "Co-President",
     bio: "Roger's responsibilities include evaluating the feasibility of new commercial and residential projects, analyzing multifamily properties for acquisition and/or repositioning, arranging debt and equity financing for projects, monitoring budgets, and conducting variance analysis for each project during development and operation. Roger Sherr is educated in business, finance, and law with credentials that include a Bachelor of Science in Economics, with majors in accounting and finance, from The Wharton School, University of Pennsylvania, and a Juris Doctor degree from the University of Michigan Law School.",
+    photo: rogerSherrPhoto,
   },
   {
     name: "Mike Kelly",
     title: "Director of Operations and Capital Projects",
     bio: "Mike Kelly is our Director of Operations for our apartment communities and commercial properties. Mike develops and implements annual operating budgets, rental pricing strategies, expense control procedures, general operating procedures and capital improvement plans for our property management affiliate, Blue Box Management. He is also responsible for implementing and promoting software systems that improve operating efficiency. Providing supreme customer service for all tenants, residents and ownership groups is a top priority for Mike and his team. Mike has an extensive background in property management with degrees in Business Management, Finance and Economics from Northwood University.",
+    photo: mikeKellyPhoto,
   },
   {
     name: "Joseph M. Inwald",
     title: "Risk Management & Insurance",
     bio: "Joseph Inwald handles risk management and insurance oversight functions at Sherr Development. He has extensive experience evaluating and serving the insurance needs of developers with portfolios of industrial, office, retail, and multifamily properties whose values exceed $1.5 billion. He also served as an officer at J&H, a NYSE listed Insurer. He is a CPCU and a member of RIMS. He is educated in business, insurance, and law with credentials including a Bachelor of Science degree from The Wharton School, University of Pennsylvania, and a Juris Doctor degree from the University of Michigan Law School.",
+    photo: josephInwaldPhoto,
   },
 ];
 
