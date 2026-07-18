@@ -305,7 +305,7 @@ export type PropertyCategory = {
   title: string;
   intro: string;
   // Real property/project names go here once supplied — deliberately empty now.
-  listings: { name: string; location: string; description: string[] }[];
+  listings: { name: string; location: string; description: string[]; moreDescription?: string[] }[];
 };
 
 export const propertyCategories: PropertyCategory[] = [
@@ -324,13 +324,18 @@ export const propertyCategories: PropertyCategory[] = [
     listings: [
       {
         name: "Maple Place Apartments",
-        // Heading on the real page says "262 Units"; the listing's own body
-        // copy says "a total of 232 units" — a mismatch on the live site
-        // itself, transcribed verbatim rather than guessed at. Flag to the
-        // client to confirm the real unit count.
+        // "262 Units" in the heading vs. "232 units" in the intro paragraph
+        // is not a typo — the Read More copy explains it: 232 original
+        // garden-style units plus 30 new townhomes built later = 262 today.
         location: "262 Units, Southfield, MI",
         description: [
           "Maple Place was acquired out of foreclosure with a total of 232 units. The property was in a good location with proximity to major east-west and north-south expressways. The one, two, and three bedroom units were large with good closet space. While the location and floor plans were good, the property was in a state of decline from years of neglect by earlier ownership and mismanagement by a third-party foreclosure manager.",
+        ],
+        moreDescription: [
+          "Within the first year of acquisition, a complete overhaul of all building exteriors was initiated. For each building, all rotten or warped siding was removed and replaced along with new trim and gutters. All buildings were repainted and new roofs were installed with 25-year shingles. A window replacement program was started on the first building with a plan to replace all windows within five years. Hallways and vestibules were repainted with new flooring as needed, and building entrance doors were also evaluated for replacement.",
+          'At the entrance to the community and in the clubhouse, the capital improvement program continued. The entrance was completely repaved with new curbing, signage and landscaping. An electronic security gate system was installed with multiple cameras to promote safety and security. In the clubhouse, new bathrooms were installed and the clubhouse itself was redesigned and redecorated. The new furnishings and wall décor provided a fresh look and a more contemporary appearance. New technology was introduced which included check scanners, card machines for laundry, and a business station. All entrance and clubhouse improvements were designed to highlight "positive change" for existing residents and appeal to the progressive tastes and demands of new residents.',
+          "Finally, in addition to the aforementioned improvements, 30 new townhome units were constructed on excess land to compliment the existing 232 garden-style units. The townhomes offered individual entry, washer and dryer, and full basements.",
+          'Today, with a total of 262 units, Maple Place has been rebranded as the "go to" community in the area for its variety of floorplans, security system, and overall excellent management. Rents and operating income have increased substantially since acquisition, confirming the capital improvement decisions made by SDC.',
         ],
       },
       {
@@ -338,6 +343,9 @@ export const propertyCategories: PropertyCategory[] = [
         location: "211 Units, Southfield, MI",
         description: [
           'This property consists of 211 garden-style and townhouse units located at a busy intersection on the border of Beverly Hills and Birmingham. The property was acquired in 2015 from the family that originally constructed the project and owned it for thirty years thereafter. While the property was well managed and well maintained, the team at SDC identified a number of "game-changing" improvements that would uniquely distinguish the property and reposition the asset.',
+        ],
+        moreDescription: [
+          "The capital improvement program continues today with funds budgeted annually for both upgrades to unit interiors and the restoration and maintenance of building exteriors. Landscaping too is an important part of our improvement program. With low turnover and annual increases in operating income, SDC has accomplished a significant repositioning of the asset while providing for a very attractive return on its investment.",
         ],
       },
       {
@@ -347,12 +355,20 @@ export const propertyCategories: PropertyCategory[] = [
           "Pine Ridge was acquired out of foreclosure in 2012. At the time of acquisition, balconies were in disrepair, there was no formal leasing office and the buildings themselves were in a state of decline.",
           "Immediately after the acquisition, SDC engaged a capital improvement program to repair and replace all problem balconies, remove all warped and decaying T1-11 siding from the buildings, and replace and repaint all newly installed wood siding along with replacing gutters throughout.",
         ],
+        moreDescription: [
+          "As part of our initial improvement program, a new leasing office was created in one of the unoccupied units which included a separate interior office for the property manager and a visible canopy marking the leasing office entrance for tenants and visitors. Finally, in conjunction with a new leasing office, we added a new boulevard entrance sign, new entrance landscaping, and signage for reserved visitor parking.",
+          "The property's performance improved substantially after improvements made by Sherr. The initial capital improvement program along with systematic improvements to unit interiors allowed Sherr to experience annual increases in rent along with high occupancy. In 2020, based on an unsolicited and extremely attractive offer received for the property, Sherr exited from its ownership position in Pine Ridge Apartments at a valuation multiple times its original investment.",
+        ],
       },
       {
         name: "Biscayne Towers",
         location: "402 Units, North Miami, Florida",
         description: [
           "In 2013, SDC paid $6.9 million for a highly visible seven acre parcel of vacant land on Biscayne Boulevard. The property was not zoned for development but was in an excellent location near a new Whole Foods, Home Depot, Walgreens and other good commercial tenants.",
+        ],
+        moreDescription: [
+          "SDC envisioned a new multifamily community on the property assuming the municipality would accept a multi-story work-force housing development to the area. Working with a highly qualified team of local engineers and a nationally recognized architectural firm, SDC obtained approval for a new multifamily development consisting of 402 units in nine stores, with an attached five story parking structure.",
+          "In 2015, before construction had begun, SDC accepted an unsolicited offer from a Connecticut developer to sell the project for $16.3 million. With an excellent return generated from its investment, SDC continues to search in Florida for other multifamily opportunities.",
         ],
       },
     ],
