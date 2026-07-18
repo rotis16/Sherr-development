@@ -223,6 +223,68 @@ export const companyProfile = {
   },
 };
 
+/** Confirmed verbatim from screenshots of sherrdev.com/blue-box-management/ (client-supplied, 2026-07-18). */
+export const blueBoxManagement = {
+  heading: "Blue Box Management",
+  subheading: "We Effectively Track and Analyze Each Property",
+  paragraphs: [
+    "Blue Box Management is a full-service property management company that specializes in 24-hour a day, seven days a week, management of both multifamily and commercial assets. Our seasoned professionals understand the value of earning and maintaining the trust of our residents, tenants, clients and vendors. This value is specifically evident in the long-term relationships we have with customers and suppliers as well as the superior performance of the properties we manage. With an experienced management team and an extensive track record of creating value in real estate, Blue Box takes over the daily stresses of managing real estate while offering our owners and investors the opportunity for enhanced returns.",
+    "Blue Box Management systematically oversees the physical condition and financial operation of each property. We provide the same high quality services to all clients regardless of the size of the asset. Blue Box Management uses of the industry's leading software programs which allows for the most effective revenue and expense tracking along with corresponding data analytics. We pride ourselves on improving the performance of each property in all areas while providing clients with transparent, up-to-date reporting.",
+  ],
+  categories: [
+    {
+      title: "Multi-Family Property Management",
+      items: [
+        "Daily operations, resident relations, and full service maintenance",
+        "Rent collection, tracking, and coordination of legal filings",
+        "Vendor and Contractor Management – developing and maintaining contracts and relationships",
+        "Human Resource Management – hiring, coaching, motivating and supervising personnel",
+        "Time keeping and payroll services",
+      ],
+    },
+    {
+      title: "Leasing and Marketing",
+      items: [
+        "Customer Relationship Management using state of the art software",
+        "Data driven, professional, and innovative rent pricing analyses, strategies, and consistent implementation",
+        "Detailed marketing plans to attract new residents and tenants",
+        "Strategic retention activities to reduce turnover",
+        "Facilitation of tenanting commercial space using brokerage services",
+      ],
+    },
+    {
+      title: "Inspection, Maintenance and Value-Add Improvements",
+      items: [
+        "Overseeing local and state required inspections",
+        "Repairs for general and emergency maintenance issues (24-hours/day)",
+        "Preparing rental space for residential and commercial customers",
+        "Weekly inspections of assets and move-in / move-out inspection reports",
+        "Development and execution of value-add improvement plans and capital improvements",
+      ],
+    },
+    {
+      title: "Financial Management and Reporting",
+      items: [
+        "Competitively bidding and tracking of contracts",
+        "Annual, or more frequent, budgeting for revenue and expenses",
+        "Monthly operating statements with variance reporting",
+        "Processing of invoices and CAM invoicing of tenants",
+        "On staff Certified Public Accountants and liaisons with outside accounting services",
+      ],
+    },
+    {
+      title: "Management of Legal Services, Compliance, and Insurance",
+      items: [
+        "Address compliance with Federal, State, and municipal requirements",
+        "Coordinating Legal services to manage all types of resident and tenant issues",
+        "Coordinating efforts to gain municipal approvals",
+        "Guide annual mortgage inspection compliance efforts",
+        "Insurance coverage auditing and provision of program recommendations, (e.g., coverage, brokerage, and Insurers). Assist with addressing claims and loss control requirements",
+      ],
+    },
+  ],
+};
+
 export const heroImage = {
   src: null as string | null,
   // Confirmed subject from homepage screenshot: a city skyline over water
