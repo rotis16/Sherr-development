@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { DivisionsGrid } from "../components/DivisionsGrid";
-import { PlaceholderImage } from "../components/PlaceholderImage";
 import { Reveal } from "../components/Reveal";
+import detroitSkyline from "../assets/detroit-skyline.webp";
 import projectLocationMap from "../assets/project-location-map.png";
 import { divisions, heroHeadline, heroImage, homeIntro, homeIntroHeading, projectLocations } from "../content/content";
 
@@ -32,9 +32,10 @@ export function Home() {
               </div>
             </Reveal>
             <Reveal delay={150} className="lg:col-span-5">
-              <PlaceholderImage
-                label={heroImage.alt}
-                className="aspect-[4/5] w-full rounded-lg shadow-2xl shadow-black/40 lg:aspect-auto lg:h-full"
+              <img
+                src={detroitSkyline}
+                alt={heroImage.alt}
+                className="aspect-[4/5] w-full rounded-lg object-cover shadow-2xl shadow-black/40 lg:aspect-auto lg:h-full"
               />
             </Reveal>
           </div>

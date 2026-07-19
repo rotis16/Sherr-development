@@ -285,11 +285,7 @@ export const blueBoxManagement = {
 };
 
 export const heroImage = {
-  src: null as string | null,
-  // Confirmed subject from homepage screenshot: a city skyline over water
-  // (Detroit riverfront, GM Renaissance Center visible) — still need the
-  // actual photo file from the client to use it here.
-  alt: PLACEHOLDER("hero photo not yet supplied — send the real skyline photo file used on the homepage"),
+  alt: "Detroit riverfront skyline, including the GM Renaissance Center",
 };
 
 /** Confirmed verbatim from the homepage hero banner (overlaid on the skyline photo). */
