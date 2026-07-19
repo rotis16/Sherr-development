@@ -25,7 +25,7 @@ export function CompanyHistory() {
             <img
               src={founderPhoto}
               alt="I. William Sherr, founder, pictured at Frank's Nursery & Crafts"
-              className="aspect-[4/3] w-full rounded-lg object-cover shadow-lg"
+              className="aspect-[4/5] w-full rounded-lg object-cover shadow-lg"
             />
             <img
               src={franksNurseryLogo}
