@@ -9,30 +9,35 @@ export function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="mx-auto max-w-6xl px-4 pb-14 pt-14 sm:px-6 sm:pt-20">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-          <Reveal className="lg:col-span-7">
-            <h1 className="font-display text-4xl font-medium leading-[1.08] tracking-tight text-ink sm:text-6xl">
-              {heroHeadline}
-            </h1>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Link
-                to="/company-profile"
-                className="bg-ink px-6 py-3 text-sm font-medium tracking-wide text-stone-50 transition-colors hover:bg-bronze-600"
-              >
-                About the Company
-              </Link>
-              <Link
-                to="/contact"
-                className="border border-ink/30 px-6 py-3 text-sm font-medium tracking-wide text-ink transition-colors hover:border-ink"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </Reveal>
-          <Reveal delay={150} className="lg:col-span-5">
-            <PlaceholderImage label={heroImage.alt} className="aspect-[4/5] w-full lg:aspect-auto lg:h-full" />
-          </Reveal>
+      <section className="page-header-surface relative overflow-hidden border-b border-bronze-700/40">
+        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <Reveal className="lg:col-span-7">
+              <h1 className="font-display text-4xl font-medium leading-[1.08] tracking-tight text-white sm:text-6xl">
+                {heroHeadline}
+              </h1>
+              <div className="mt-9 flex flex-wrap gap-4">
+                <Link
+                  to="/company-profile"
+                  className="bg-white px-6 py-3 text-sm font-medium tracking-wide text-ink transition-colors hover:bg-bronze-400 hover:text-white"
+                >
+                  About the Company
+                </Link>
+                <Link
+                  to="/contact"
+                  className="border border-white/40 px-6 py-3 text-sm font-medium tracking-wide text-white transition-colors hover:border-white"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal delay={150} className="lg:col-span-5">
+              <PlaceholderImage
+                label={heroImage.alt}
+                className="aspect-[4/5] w-full rounded-lg shadow-2xl shadow-black/40 lg:aspect-auto lg:h-full"
+              />
+            </Reveal>
+          </div>
         </div>
       </section>
 
