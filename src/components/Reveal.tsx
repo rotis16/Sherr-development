@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
- * Fades and rises an element into place the first time it scrolls into
- * view, then leaves it alone. Skips straight to visible under
- * prefers-reduced-motion rather than racing the observer.
+ * Fades and rises an element into place whenever it scrolls into view,
+ * and reverses back out when it leaves — so the effect replays on the
+ * way back up, not just once on the way down. Skips straight to
+ * visible under prefers-reduced-motion rather than racing the observer.
  */
 export function Reveal({
   children,
@@ -25,12 +26,7 @@ export function Reveal({
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(el);
-        }
-      },
+      ([entry]) => setVisible(entry.isIntersecting),
       { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
     );
     observer.observe(el);
