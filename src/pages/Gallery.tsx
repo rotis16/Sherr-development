@@ -1,6 +1,7 @@
 import { Copy } from "../components/Copy";
 import { PageHeader } from "../components/PageHeader";
 import { PlaceholderImage } from "../components/PlaceholderImage";
+import { Reveal } from "../components/Reveal";
 import { galleryIntro } from "../content/content";
 
 export function Gallery() {
@@ -13,7 +14,9 @@ export function Gallery() {
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: 6 }).map((_, i) => (
-            <PlaceholderImage key={i} label="Project photo" className="aspect-[4/3] w-full" />
+            <Reveal key={i} delay={(i % 3) * 100}>
+              <PlaceholderImage label="Project photo" className="aspect-[4/3] w-full" />
+            </Reveal>
           ))}
         </div>
       </div>

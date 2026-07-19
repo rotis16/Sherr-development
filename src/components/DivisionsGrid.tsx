@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Reveal } from "./Reveal";
 import type { Division } from "../content/content";
 
 /** Small line icons, one per division. Purely decorative — keyed by name, not content. */
@@ -33,14 +34,16 @@ function DivisionIcon({ name }: { name: string }) {
 export function DivisionsGrid({ divisions }: { divisions: Division[] }) {
   return (
     <div className="mt-8 grid gap-10 sm:grid-cols-3">
-      {divisions.map((d) => (
-        <div key={d.name} className="group">
-          <DivisionIcon name={d.name} />
-          <div className="mt-4 h-0.5 w-8 bg-bronze-500 transition-all duration-300 group-hover:w-16" />
-          <h3 className="font-display mt-5 text-lg font-medium text-ink">{d.name}</h3>
-          <p className="mt-1 text-sm italic text-bronze-600">{d.summary}</p>
-          <p className="mt-3 text-sm leading-relaxed text-ink-soft/80">{d.description}</p>
-        </div>
+      {divisions.map((d, i) => (
+        <Reveal key={d.name} delay={i * 100}>
+          <div className="group -m-2 rounded p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <DivisionIcon name={d.name} />
+            <div className="mt-4 h-0.5 w-8 bg-bronze-500 transition-all duration-300 group-hover:w-16" />
+            <h3 className="font-display mt-5 text-lg font-medium text-ink">{d.name}</h3>
+            <p className="mt-1 text-sm italic text-bronze-600">{d.summary}</p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft/80">{d.description}</p>
+          </div>
+        </Reveal>
       ))}
     </div>
   );

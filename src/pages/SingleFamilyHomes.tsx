@@ -1,5 +1,6 @@
 import { PageHeader } from "../components/PageHeader";
 import { PlaceholderImage } from "../components/PlaceholderImage";
+import { Reveal } from "../components/Reveal";
 import { singleFamilyHomes, type SingleFamilyListing } from "../content/content";
 
 export function SingleFamilyHomes() {
@@ -15,8 +16,10 @@ export function SingleFamilyHomes() {
           <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-ink-soft/90">{newCommunities.intro}</p>
 
           <div className="mt-10 grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14">
-            {newCommunities.listings.map((listing) => (
-              <ListingCard key={listing.name} listing={listing} />
+            {newCommunities.listings.map((listing, i) => (
+              <Reveal key={listing.name} delay={(i % 2) * 100}>
+                <ListingCard listing={listing} />
+              </Reveal>
             ))}
           </div>
         </section>
@@ -25,18 +28,20 @@ export function SingleFamilyHomes() {
           <h2 className="font-display text-2xl font-medium leading-snug text-ink">{pastCommunities.heading}</h2>
 
           <div className="mt-10 grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14">
-            {pastCommunities.listings.map((listing) => (
-              <ListingCard key={listing.name} listing={listing} />
+            {pastCommunities.listings.map((listing, i) => (
+              <Reveal key={listing.name} delay={(i % 2) * 100}>
+                <ListingCard listing={listing} />
+              </Reveal>
             ))}
 
-            <div className="border border-stone-200 bg-stone-100 p-6 sm:col-span-2">
+            <Reveal className="border border-stone-200 bg-stone-100 p-6 sm:col-span-2">
               <h3 className="font-display text-lg font-medium text-ink">{pastCommunities.regionalNote.heading}</h3>
               <div className="mt-3 max-w-3xl space-y-3 text-sm leading-relaxed text-ink-soft/85">
                 {pastCommunities.regionalNote.paragraphs.map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
                 ))}
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
       </div>
@@ -46,8 +51,13 @@ export function SingleFamilyHomes() {
 
 function ListingCard({ listing }: { listing: SingleFamilyListing }) {
   return (
-    <div>
-      <PlaceholderImage label={`${listing.name} — property photo`} className="aspect-[3/2] w-full" />
+    <div className="group">
+      <div className="overflow-hidden">
+        <PlaceholderImage
+          label={`${listing.name} — property photo`}
+          className="aspect-[3/2] w-full transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
       <div className="mt-5">
         <h3 className="font-display text-lg font-medium text-ink">{listing.name}</h3>
         <p className="mt-0.5 text-sm font-medium uppercase tracking-wide text-bronze-600">{listing.location}</p>

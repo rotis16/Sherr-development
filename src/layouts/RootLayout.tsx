@@ -14,6 +14,7 @@ function scrollToTop() {
 
 export function RootLayout() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <div className="flex min-h-screen flex-col bg-stone-50 text-ink-soft">
@@ -67,7 +68,9 @@ export function RootLayout() {
       </header>
 
       <main className="flex-1">
-        <Outlet />
+        <div key={location.pathname} className="page-transition">
+          <Outlet />
+        </div>
       </main>
 
       <Footer />

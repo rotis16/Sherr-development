@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Copy } from "../components/Copy";
 import { PageHeader } from "../components/PageHeader";
 import { PlaceholderImage } from "../components/PlaceholderImage";
+import { Reveal } from "../components/Reveal";
 import type { PropertyCategory } from "../content/content";
 
 type Listing = PropertyCategory["listings"][number];
@@ -19,8 +20,10 @@ export function PropertyCategoryPage({ category }: { category: PropertyCategory 
 
         {category.listings.length > 0 ? (
           <div className={`grid gap-12 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-14 ${category.intro ? "mt-12" : ""}`}>
-            {category.listings.map((listing) => (
-              <ListingCard key={listing.name} listing={listing} />
+            {category.listings.map((listing, i) => (
+              <Reveal key={listing.name} delay={(i % 2) * 100}>
+                <ListingCard listing={listing} />
+              </Reveal>
             ))}
           </div>
         ) : (
@@ -38,8 +41,13 @@ function ListingCard({ listing }: { listing: Listing }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
-      <PlaceholderImage label={`${listing.name} — property photo`} className="aspect-[3/2] w-full" />
+    <div className="group">
+      <div className="overflow-hidden">
+        <PlaceholderImage
+          label={`${listing.name} — property photo`}
+          className="aspect-[3/2] w-full transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
       <div className="mt-5">
         <h3 className="font-display text-lg font-medium text-ink">{listing.name}</h3>
         <p className="mt-0.5 text-sm font-medium uppercase tracking-wide text-bronze-600">{listing.location}</p>

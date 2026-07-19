@@ -1,4 +1,5 @@
 import { PageHeader } from "../components/PageHeader";
+import { Reveal } from "../components/Reveal";
 import { employmentIntro } from "../content/content";
 
 export function Employment() {
@@ -6,7 +7,7 @@ export function Employment() {
     <div>
       <PageHeader title="Employment" />
       <div className="mx-auto grid max-w-6xl gap-14 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-2">
-        <div>
+        <Reveal>
           <p className="mt-1 text-sm text-ink-soft/60">Preview form — not wired up to send email yet.</p>
           <form className="mt-6 space-y-5" onSubmit={(e) => e.preventDefault()}>
             <div>
@@ -57,11 +58,11 @@ export function Employment() {
               Send
             </button>
           </form>
-        </div>
+        </Reveal>
 
-        <div className="border-t border-stone-200 pt-8 lg:border-t-0 lg:border-l lg:pl-14 lg:pt-0">
+        <Reveal delay={150} className="border-t border-stone-200 pt-8 lg:border-t-0 lg:border-l lg:pl-14 lg:pt-0">
           <p className="max-w-md text-[17px] leading-relaxed text-ink-soft/90">{employmentIntro}</p>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

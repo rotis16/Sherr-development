@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { PageHeader } from "../components/PageHeader";
+import { Reveal } from "../components/Reveal";
 import { team, teamHeading, type TeamMember } from "../content/content";
 
 function easeInOutCubic(t: number) {
@@ -35,8 +36,10 @@ export function Team() {
       <PageHeader title="Our Team" subtitle={teamHeading} />
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="grid gap-10 sm:grid-cols-2">
-          {team.map((member) => (
-            <TeamMemberCard key={member.name} member={member} />
+          {team.map((member, i) => (
+            <Reveal key={member.name} delay={(i % 2) * 100}>
+              <TeamMemberCard member={member} />
+            </Reveal>
           ))}
         </div>
       </div>
@@ -62,13 +65,15 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
   };
 
   return (
-    <div ref={cardRef} className="scroll-mt-24 flex gap-5 border-t border-stone-200 pt-6">
-      <img
-        src={member.photo}
-        alt={member.name}
-        style={{ objectPosition: "50% 20%" }}
-        className="h-24 w-24 shrink-0 rounded-full object-cover"
-      />
+    <div ref={cardRef} className="group scroll-mt-24 flex gap-5 border-t border-stone-200 pt-6">
+      <div className="h-24 w-24 shrink-0 overflow-hidden rounded-full">
+        <img
+          src={member.photo}
+          alt={member.name}
+          style={{ objectPosition: "50% 20%" }}
+          className="h-24 w-24 object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+      </div>
       <div className="min-w-0 flex-1">
         <h3 className="font-display text-lg font-medium text-ink">{member.name}</h3>
         <div className="mt-0.5 text-xs font-medium uppercase tracking-wide text-bronze-600">{member.title}</div>

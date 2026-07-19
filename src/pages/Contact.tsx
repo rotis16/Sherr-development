@@ -1,4 +1,5 @@
 import { PageHeader } from "../components/PageHeader";
+import { Reveal } from "../components/Reveal";
 import { siteMeta } from "../content/content";
 
 export function Contact() {
@@ -6,7 +7,7 @@ export function Contact() {
     <div>
       <PageHeader title="Contact" />
       <div className="mx-auto grid max-w-6xl gap-14 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-2">
-        <div>
+        <Reveal>
           <p className="mt-1 text-sm text-ink-soft/60">Preview form — not wired up to send email yet.</p>
           <form className="mt-6 space-y-5" onSubmit={(e) => e.preventDefault()}>
             <div>
@@ -58,9 +59,9 @@ export function Contact() {
               Send
             </button>
           </form>
-        </div>
+        </Reveal>
 
-        <div className="border-t border-stone-200 pt-8 lg:border-t-0 lg:border-l lg:pl-14 lg:pt-0">
+        <Reveal delay={150} className="border-t border-stone-200 pt-8 lg:border-t-0 lg:border-l lg:pl-14 lg:pt-0">
           <h2 className="font-display text-xl font-medium text-ink">Find Us</h2>
           <p className="mt-3 text-ink-soft/90">{siteMeta.address.line1}</p>
           <p className="text-ink-soft/90">{siteMeta.address.line2}</p>
@@ -70,7 +71,7 @@ export function Contact() {
           >
             {siteMeta.phone}
           </a>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

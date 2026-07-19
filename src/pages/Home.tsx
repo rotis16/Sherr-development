@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { DivisionsGrid } from "../components/DivisionsGrid";
 import { PlaceholderImage } from "../components/PlaceholderImage";
+import { Reveal } from "../components/Reveal";
 import projectLocationMap from "../assets/project-location-map.png";
 import { divisions, heroHeadline, heroImage, homeIntro, homeIntroHeading, projectLocations } from "../content/content";
 
@@ -10,7 +11,7 @@ export function Home() {
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-4 pb-14 pt-14 sm:px-6 sm:pt-20">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7">
             <h1 className="font-display text-4xl font-medium leading-[1.08] tracking-tight text-ink sm:text-6xl">
               {heroHeadline}
             </h1>
@@ -28,10 +29,10 @@ export function Home() {
                 Contact Us
               </Link>
             </div>
-          </div>
-          <div className="lg:col-span-5">
+          </Reveal>
+          <Reveal delay={150} className="lg:col-span-5">
             <PlaceholderImage label={heroImage.alt} className="aspect-[4/5] w-full lg:aspect-auto lg:h-full" />
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -39,13 +40,13 @@ export function Home() {
       <section className="border-y border-stone-200 bg-stone-100">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-            <div className="lg:col-span-4">
+            <Reveal className="lg:col-span-4">
               <div className="mb-4 h-px w-12 bg-bronze-500" />
               <h2 className="font-display text-3xl font-medium leading-tight tracking-tight text-ink">
                 {homeIntroHeading}
               </h2>
-            </div>
-            <div className="lg:col-span-8">
+            </Reveal>
+            <Reveal delay={120} className="lg:col-span-8">
               <p className="max-w-2xl text-[17px] leading-relaxed text-ink-soft/90">{homeIntro}</p>
 
               <div className="mt-10 flex flex-wrap gap-x-12 gap-y-6 border-t border-stone-300 pt-8">
@@ -66,7 +67,7 @@ export function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -74,18 +75,22 @@ export function Home() {
       {/* Project location map */}
       <section className="border-t border-stone-200 bg-stone-100">
         <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
-          <img
-            src={projectLocationMap}
-            alt={`Project location map — ${projectLocations.join(", ")}`}
-            className="mx-auto w-full max-w-md"
-          />
+          <Reveal>
+            <img
+              src={projectLocationMap}
+              alt={`Project location map — ${projectLocations.join(", ")}`}
+              className="mx-auto w-full max-w-md"
+            />
+          </Reveal>
         </div>
       </section>
 
       {/* Divisions */}
       <section className="border-t border-stone-200">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-          <h2 className="font-display text-3xl font-medium tracking-tight text-ink">Our Divisions</h2>
+          <Reveal>
+            <h2 className="font-display text-3xl font-medium tracking-tight text-ink">Our Divisions</h2>
+          </Reveal>
           <DivisionsGrid divisions={divisions} />
         </div>
       </section>

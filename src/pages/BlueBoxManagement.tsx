@@ -1,5 +1,6 @@
 import { PageHeader } from "../components/PageHeader";
 import { PlaceholderImage } from "../components/PlaceholderImage";
+import { Reveal } from "../components/Reveal";
 import { Link } from "react-router-dom";
 import { blueBoxManagement } from "../content/content";
 
@@ -24,54 +25,56 @@ export function BlueBoxManagement() {
 
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
-          <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7">
             <div className="space-y-5 text-[17px] leading-relaxed text-ink-soft/90">
               {blueBoxManagement.paragraphs.map((paragraph, i) => (
                 <p key={i}>{paragraph}</p>
               ))}
             </div>
-          </div>
-          <div className="lg:col-span-5">
+          </Reveal>
+          <Reveal delay={150} className="lg:col-span-5">
             <PlaceholderImage label="Blue Box Management — property photo" className="aspect-[4/3] w-full" />
-          </div>
+          </Reveal>
         </div>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-12">
           {blueBoxManagement.categories.map((category, i) => (
-            <div key={category.title}>
-              <svg
-                className="h-7 w-7 text-bronze-500"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d={ICON_PATHS[i]} />
-              </svg>
-              <div className="mt-4 h-0.5 w-8 bg-bronze-500" />
-              <h3 className="font-display mt-4 text-lg font-medium leading-snug text-ink">{category.title}</h3>
-              <ul className="mt-3 space-y-2.5">
-                {category.items.map((item) => (
-                  <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-ink-soft/85">
-                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-bronze-400" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Reveal key={category.title} delay={(i % 2) * 100}>
+              <div className="group -m-2 rounded p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+                <svg
+                  className="h-7 w-7 text-bronze-500"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d={ICON_PATHS[i]} />
+                </svg>
+                <div className="mt-4 h-0.5 w-8 bg-bronze-500 transition-all duration-300 group-hover:w-16" />
+                <h3 className="font-display mt-4 text-lg font-medium leading-snug text-ink">{category.title}</h3>
+                <ul className="mt-3 space-y-2.5">
+                  {category.items.map((item) => (
+                    <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-ink-soft/85">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-bronze-400" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-16 border-t border-stone-200 pt-10 text-center">
+        <Reveal className="mt-16 border-t border-stone-200 pt-10 text-center">
           <Link
             to="/contact"
             className="inline-block bg-ink px-6 py-3 text-sm font-medium tracking-wide text-stone-50 transition-colors hover:bg-bronze-600"
           >
             For More Information
           </Link>
-        </div>
+        </Reveal>
       </div>
     </div>
   );
