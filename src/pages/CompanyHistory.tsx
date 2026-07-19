@@ -1,6 +1,7 @@
 import { PageHeader } from "../components/PageHeader";
-import { PlaceholderImage } from "../components/PlaceholderImage";
 import { Reveal } from "../components/Reveal";
+import founderPhoto from "../assets/founder-photo.jpeg";
+import franksNurseryLogo from "../assets/franks-nursery-logo.jpeg";
 import { companyHistory } from "../content/content";
 
 export function CompanyHistory() {
@@ -21,8 +22,16 @@ export function CompanyHistory() {
             </div>
           </Reveal>
           <Reveal delay={150} className="flex flex-col gap-6 lg:col-span-5">
-            <PlaceholderImage label="Founder photo — I. William Sherr" className="aspect-[4/3] w-full" />
-            <PlaceholderImage label="Frank's Nursery & Crafts logo" className="aspect-[2/1] w-full" />
+            <img
+              src={founderPhoto}
+              alt="I. William Sherr, founder, pictured at Frank's Nursery & Crafts"
+              className="aspect-[4/3] w-full rounded-lg object-cover shadow-lg"
+            />
+            <img
+              src={franksNurseryLogo}
+              alt="Frank's Nursery & Crafts logo"
+              className="aspect-[2/1] w-full rounded-lg object-contain bg-white p-6 shadow-lg"
+            />
           </Reveal>
         </div>
       </div>
