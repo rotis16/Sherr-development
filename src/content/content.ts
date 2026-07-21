@@ -32,11 +32,11 @@ import cornerPlaceSign from "../assets/corner-place-sign.jpeg";
 import pineRidgeSign from "../assets/pine-ridge-sign.jpeg";
 import biscayneAerial from "../assets/biscayne-aerial.jpeg";
 import orionRidgeElevation from "../assets/orion-ridge-elevation.jpeg";
-import farmingtonReserves1 from "../assets/farmington-reserves-1.jpeg";
-import farmingtonReserves2 from "../assets/farmington-reserves-2.jpeg";
-import farmingtonReserves3 from "../assets/farmington-reserves-3.jpeg";
+import farmingtonReserves from "../assets/farmington-reserves.jpeg";
 import residentialTowers from "../assets/residential-towers.jpeg";
-import villageOfClawson from "../assets/village-of-clawson.jpeg";
+import villageOfClawson1 from "../assets/village-of-clawson-1.jpeg";
+import villageOfClawson2 from "../assets/village-of-clawson-2.jpeg";
+import villageOfClawson3 from "../assets/village-of-clawson-3.jpeg";
 import annArborWoods from "../assets/ann-arbor-woods.jpeg";
 import emeraldParkRendering from "../assets/emerald-park-rendering.jpeg";
 import lyndonParkRendering from "../assets/lyndon-park-rendering.jpeg";
@@ -44,6 +44,7 @@ import newportEstates from "../assets/newport-estates.jpeg";
 import coveCreek from "../assets/cove-creek.jpeg";
 import whetherstoneCondominiums from "../assets/whetherstone-condominiums.jpeg";
 import auburnParkCondominiums from "../assets/auburn-park-condominiums.jpeg";
+import pittsfieldGlens from "../assets/pittsfield-glens.jpeg";
 import coachlightCondominiums from "../assets/coachlight-condominiums.jpeg";
 
 /** Wraps text that has NOT been confirmed against the real site. */
@@ -483,8 +484,8 @@ export const singleFamilyHomes = {
       {
         name: "Farmington Reserves",
         location: "19 Single Family Homes, Farmington Hills, MI",
-        images: [farmingtonReserves1, farmingtonReserves2, farmingtonReserves3],
-        imageAlt: "Farmington Reserves elevation options",
+        image: farmingtonReserves,
+        imageAlt: "Farmington Reserves home",
         description: [
           "Farmington Reserves is located in one of the best school districts in Oakland County, and very close to the desirable attractions of downtown Farmington. With only 19 homes in a community where the demand for homes far exceeds supply, sales in this community at prices averaging in the $500s, are anticipated to be fast. Homes styles offered will include a ranch with approximately 1,800 square feet, and several colonial plans which range in size from 2,000 to 2,500 square feet. As typical of homes offered by Sherr, there will be many upgrades and options for interior materials and finishes, along with the ability to provide for modest custom requests.",
         ],
@@ -502,8 +503,8 @@ export const singleFamilyHomes = {
       {
         name: "Village of Clawson",
         location: "39 Single Family Homes, Clawson, MI",
-        image: villageOfClawson,
-        imageAlt: "Village of Clawson home",
+        images: [villageOfClawson1, villageOfClawson2, villageOfClawson3],
+        imageAlt: "Village of Clawson elevation options",
         description: [
           "The Village of Clawson will provide an exciting opportunity for new home buyers in the highly desirable community of Clawson. With a total of 39 homes, this will be the largest new residential development in the city in many years. Homes will range in size from 1,800 square feet to 2,600 square feet, with prices expected to start in the $500s. The homes will feature fresh elevations, multiple selections for appliances, plumbing and lighting fixtures, and many options on flooring, cabinetry including several choices on stone and quartz countertops.",
         ],
@@ -645,6 +646,8 @@ export const singleFamilyHomes = {
       {
         name: "Pittsfield Glens",
         location: "98 Single-family Homes and 56 Attached Condominiums, Pittsfield Township, MI",
+        image: pittsfieldGlens,
+        imageAlt: "Pittsfield Glens home",
         description: [
           "The land for Pittsfield Glens was purchased to create a unique residential community in the highly acclaimed Ann Arbor, MI School District. The community was designed with a combination of 98 single family home sites and 56 attached condominiums. While the site plan was difficult to approve in this municipality, ultimately the community was approved and the fully entitled site was sold to Pulte Homes. The price realized by SDC provided a timely and extraordinary return on its investment.",
         ],

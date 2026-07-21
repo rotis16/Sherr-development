@@ -1,5 +1,4 @@
 import { PageHeader } from "../components/PageHeader";
-import { PlaceholderImage } from "../components/PlaceholderImage";
 import { Reveal } from "../components/Reveal";
 import { singleFamilyHomes, type SingleFamilyListing } from "../content/content";
 
@@ -52,8 +51,8 @@ export function SingleFamilyHomes() {
 function ListingCard({ listing }: { listing: SingleFamilyListing }) {
   return (
     <div className="group">
-      <div className="overflow-hidden">
-        {listing.images ? (
+      {listing.images ? (
+        <div className="overflow-hidden">
           <div className="grid grid-cols-3 gap-1">
             {listing.images.map((src, i) => (
               <img
@@ -64,20 +63,17 @@ function ListingCard({ listing }: { listing: SingleFamilyListing }) {
               />
             ))}
           </div>
-        ) : listing.image ? (
+        </div>
+      ) : listing.image ? (
+        <div className="overflow-hidden">
           <img
             src={listing.image}
             alt={listing.imageAlt ?? listing.name}
             className="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
-        ) : (
-          <PlaceholderImage
-            label={`${listing.name} — property photo`}
-            className="aspect-[3/2] w-full transition-transform duration-500 group-hover:scale-105"
-          />
-        )}
-      </div>
-      <div className="mt-5">
+        </div>
+      ) : null}
+      <div className={listing.image || listing.images ? "mt-5" : ""}>
         <h3 className="font-display text-lg font-medium text-ink">{listing.name}</h3>
         <p className="mt-0.5 text-sm font-medium uppercase tracking-wide text-bronze-600">{listing.location}</p>
         <div className="mt-3 space-y-3 text-sm leading-relaxed text-ink-soft/85">
