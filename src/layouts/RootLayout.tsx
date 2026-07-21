@@ -22,13 +22,13 @@ export function RootLayout() {
         <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-8 px-4 py-5 sm:px-6">
           <NavLink
             to="/"
-            className="flex min-w-0 shrink-0 items-center"
+            className="flex min-w-0 shrink-0 items-center rounded-md bg-ink px-3 py-2"
             onClick={() => {
               setMenuOpen(false);
               scrollToTop();
             }}
           >
-            <img src={sherrLogo} alt="Sherr Development" className="h-12 w-auto sm:h-14" />
+            <img src={sherrLogo} alt="Sherr Development" className="h-10 w-auto sm:h-12" />
           </NavLink>
 
           <nav data-nav="desktop" className="hidden shrink-0 min-[1080px]:flex min-[1080px]:items-center min-[1080px]:gap-6">
