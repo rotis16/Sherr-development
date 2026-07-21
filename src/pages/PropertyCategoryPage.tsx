@@ -43,10 +43,18 @@ function ListingCard({ listing }: { listing: Listing }) {
   return (
     <div className="group">
       <div className="overflow-hidden">
-        <PlaceholderImage
-          label={`${listing.name} — property photo`}
-          className="aspect-[3/2] w-full transition-transform duration-500 group-hover:scale-105"
-        />
+        {listing.image ? (
+          <img
+            src={listing.image}
+            alt={listing.imageAlt ?? listing.name}
+            className="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <PlaceholderImage
+            label={`${listing.name} — property photo`}
+            className="aspect-[3/2] w-full transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
       </div>
       <div className="mt-5">
         <h3 className="font-display text-lg font-medium text-ink">{listing.name}</h3>

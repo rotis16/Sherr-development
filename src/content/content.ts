@@ -27,6 +27,10 @@ import stuartSherrPhoto from "../assets/team/stuart-sherr.jpeg";
 import rogerSherrPhoto from "../assets/team/roger-sherr.jpeg";
 import mikeKellyPhoto from "../assets/team/mike-kelly.jpeg";
 import josephInwaldPhoto from "../assets/team/joseph-inwald.png";
+import maplePlaceSign from "../assets/maple-place-sign.jpeg";
+import cornerPlaceSign from "../assets/corner-place-sign.jpeg";
+import pineRidgeSign from "../assets/pine-ridge-sign.jpeg";
+import biscayneAerial from "../assets/biscayne-aerial.jpeg";
 
 /** Wraps text that has NOT been confirmed against the real site. */
 export const PLACEHOLDER = (label: string) => `[PLACEHOLDER: ${label}]`;
@@ -301,7 +305,14 @@ export type PropertyCategory = {
   title: string;
   intro: string;
   // Real property/project names go here once supplied — deliberately empty now.
-  listings: { name: string; location: string; description: string[]; moreDescription?: string[] }[];
+  listings: {
+    name: string;
+    location: string;
+    description: string[];
+    moreDescription?: string[];
+    image?: string;
+    imageAlt?: string;
+  }[];
 };
 
 export const propertyCategories: PropertyCategory[] = [
@@ -318,6 +329,8 @@ export const propertyCategories: PropertyCategory[] = [
         // is not a typo — the Read More copy explains it: 232 original
         // garden-style units plus 30 new townhomes built later = 262 today.
         location: "262 Units, Southfield, MI",
+        image: maplePlaceSign,
+        imageAlt: "Maple Place Apartments entrance sign",
         description: [
           "Maple Place was acquired out of foreclosure with a total of 232 units. The property was in a good location with proximity to major east-west and north-south expressways. The one, two, and three bedroom units were large with good closet space. While the location and floor plans were good, the property was in a state of decline from years of neglect by earlier ownership and mismanagement by a third-party foreclosure manager.",
         ],
@@ -331,6 +344,8 @@ export const propertyCategories: PropertyCategory[] = [
       {
         name: "Corner Place Apartments",
         location: "211 Units, Southfield, MI",
+        image: cornerPlaceSign,
+        imageAlt: "Corner Place Apartments entrance sign",
         description: [
           'This property consists of 211 garden-style and townhouse units located at a busy intersection on the border of Beverly Hills and Birmingham. The property was acquired in 2015 from the family that originally constructed the project and owned it for thirty years thereafter. While the property was well managed and well maintained, the team at SDC identified a number of "game-changing" improvements that would uniquely distinguish the property and reposition the asset.',
         ],
@@ -341,6 +356,8 @@ export const propertyCategories: PropertyCategory[] = [
       {
         name: "Pine Ridge Apartments",
         location: "120 Units, Southfield, MI",
+        image: pineRidgeSign,
+        imageAlt: "Pine Ridge Apartments entrance sign",
         description: [
           "Pine Ridge was acquired out of foreclosure in 2012. At the time of acquisition, balconies were in disrepair, there was no formal leasing office and the buildings themselves were in a state of decline.",
           "Immediately after the acquisition, SDC engaged a capital improvement program to repair and replace all problem balconies, remove all warped and decaying T1-11 siding from the buildings, and replace and repaint all newly installed wood siding along with replacing gutters throughout.",
@@ -353,6 +370,8 @@ export const propertyCategories: PropertyCategory[] = [
       {
         name: "Biscayne Towers",
         location: "402 Units, North Miami, Florida",
+        image: biscayneAerial,
+        imageAlt: "Aerial view of the North Miami, Florida site near Biscayne Boulevard",
         description: [
           "In 2013, SDC paid $6.9 million for a highly visible seven acre parcel of vacant land on Biscayne Boulevard. The property was not zoned for development but was in an excellent location near a new Whole Foods, Home Depot, Walgreens and other good commercial tenants.",
         ],
