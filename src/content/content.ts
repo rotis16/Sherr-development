@@ -680,9 +680,6 @@ export type CommercialListing = {
   name: string;
   location: string;
   description: string[];
-  image?: string;
-  images?: string[];
-  imageAlt?: string;
 };
 
 /**
@@ -696,13 +693,10 @@ export type CommercialListing = {
  * Place Shopping Center" heading vs. "Country Corner Shopping Center" in its
  * own body copy, and "Hunter's Square" vs. "Hunter Square".
  *
- * Photos (client-supplied, 2026-07-21) are exterior/tenant-sign shots without
- * per-listing labels, matched here by the named tenants in each listing's own
- * description (e.g. the Dick's Sporting Goods photo -> Winchester Mall, which
- * names Dick's; Bed Bath & Beyond and Stein Mart -> Hunter's Square, since
- * Winchester Mall already has its own confirmed tenant photos). Corner Place
- * Shopping Center, Frank's Nursery & Crafts, and Hoover Road Warehouse have
- * no photo yet — flag to the client if any pairing looks wrong.
+ * Photos (client-supplied, 2026-07-21) are tenant exterior/sign shots, not
+ * photos of the listed properties themselves — per the client's direction,
+ * they're shown as a general gallery (`commercialPropertyPhotos` below,
+ * rendered in a side column) rather than attached to any specific listing.
  */
 export const commercialProperties = {
   heading: "Commercial Properties and Net Investments",
@@ -712,8 +706,6 @@ export const commercialProperties = {
       "A portfolio of double net and triple net leases with a dependable cash flow from tenants consisting of Starbucks and Dollar General Stores. The stores in this portfolio are located in Michigan and Ohio and provide a durable cash flow with a return on investment exceeding 18 percent. At SDC, we continue to evaluate acquisition opportunities in the net leased store space where attractive rates of return can be created or financially engineered.",
     ],
     stat: { value: "$200M+", label: "In Transaction Value Created" },
-    images: [netleasedStarbucks, netleasedDollarGeneral],
-    imageAlt: "Net leased portfolio tenant",
   },
   properties: {
     heading: "Commercial Properties",
@@ -721,8 +713,6 @@ export const commercialProperties = {
       {
         name: "14-Orchard Plaza",
         location: "37,500 sq. ft. | Farmington Hills, MI",
-        images: [orchardPlazaOfficeDepot, orchardPlazaHandAndStone],
-        imageAlt: "14-Orchard Plaza tenant",
         description: [
           "This neighborhood shopping center was constructed by Sherr Development at the corner of two of the busiest roads in Farmington Hills. Originally, the land under this center was occupied exclusively by a free-standing commercial bank. The bank was purchased with the objective of increasing yield on the property by replacing the bank with a larger retail center which would include the bank as one of several new tenants. Tenants today include Office Depot, Hand & Stone Massage, Orange Theory Fitness and Aqua-tots swim school.",
         ],
@@ -737,8 +727,6 @@ export const commercialProperties = {
       {
         name: "Hunter's Square Shopping Center",
         location: "360,000 sq.ft. | Farmington Hills, MI",
-        images: [huntersSquareBedBathBeyond, huntersSquareSteinMart],
-        imageAlt: "Hunter's Square Shopping Center tenant",
         description: [
           "Hunter's Square originally existed as two separate shopping centers, separated only by a large detention pond. The first center with a dated appearance consisted of multiple buildings with garden walkways between the buildings in a life-style orientation. The second center was laid out in a traditional in-line store format. While the properties were located on a major road in an area with excellent demographics, they each were in a state of decline that ultimately ended for each in foreclosure.",
           "With a strategy to reconfigure the property and ultimately add value, Sherr Development purchased Hunter Square out of foreclosure for a price of $12 million. The strategy involved several steps. First, several interior buildings were knocked down in order to allow the remaining stores to have a direct view to the street. Second, the parking lot was expanded to bring parking closer to store fronts. Third, a detention pond between the two centers was relocated to an underground tank, allowing for a driveway and walkway connection to facilitate cross-traffic between the two centers. Finally, tenant spaces were redesigned to allow for big box users which included Bed Bath & Beyond, TJ Max, Marshalls, GAP, and many more.",
@@ -748,8 +736,6 @@ export const commercialProperties = {
       {
         name: "Winchester Mall",
         location: "320,000 sq.ft. | Rochester Hills, MI",
-        images: [winchesterMallDicks, winchesterMallMichaels],
-        imageAlt: "Winchester Mall tenant",
         description: [
           "Winchester Mall originally existed as an enclosed mall along the major Rochester Rd. corridor in Rochester Hills. While the demographics in the area were strong and the mall was well known, a poor interior configuration and high common area expense resulted in low traffic and mediocre store performance. Ultimately, Winchester ended up in foreclosure by a Chicago bank that wanted an immediate sale of the mall whose occupancy continued to decline.",
           "Sherr Development purchased the property from the bank for $9 million with a plan to de-mall the building and eliminate the enclosed common area. By opening up the building such that all stores would face the street, SDC would make the stores more visible and significantly reduce common area expense. The decision to reconfigure the mall was carefully analyzed and executed. In the end, the decision proved correct as big box tenants like Bed Bath & Beyond, Marshalls, Dicks Sporting Goods and PetSmart were eager to take space. Spaces for smaller tenants were also made available at the right and left legs of the center which were constructed as part of the redevelopment.",
@@ -759,8 +745,6 @@ export const commercialProperties = {
       {
         name: "Joy-Beech Corners",
         location: "24,000 sq.ft. | Redford, MI",
-        image: joyBeechCornersSign,
-        imageAlt: "Joy-Beech Corners tenant sign",
         description: [
           "This small shopping center was reconfigured from an old automotive body shop which was closed and unoccupied at the time of purchase. Today, the center is very successful with tenants that include Secretary of State, Subway, and Dollar General.",
         ],
@@ -775,8 +759,6 @@ export const commercialProperties = {
       {
         name: "K-Mart Shopping Center",
         location: "120,000 sq.ft | Clinton Township, MI",
-        image: kmartShoppingCenter,
-        imageAlt: "K-Mart Shopping Center",
         description: ["Developed neighborhood shopping center which included K-Mart and Frank's Nursery as primary tenants."],
       },
       {
@@ -787,8 +769,6 @@ export const commercialProperties = {
       {
         name: "Office Building",
         location: "7,400 sq.ft. | Farmington Hills, MI",
-        image: officeBuildingPhoto,
-        imageAlt: "Office Building, Farmington Hills, MI",
         description: [
           "Acquired and converted a bank building into a multi-tenant office building which includes E-Trade as a major tenant.",
         ],
@@ -796,6 +776,20 @@ export const commercialProperties = {
     ] satisfies CommercialListing[],
   },
 };
+
+export const commercialPropertyPhotos: string[] = [
+  netleasedStarbucks,
+  netleasedDollarGeneral,
+  orchardPlazaOfficeDepot,
+  orchardPlazaHandAndStone,
+  huntersSquareBedBathBeyond,
+  huntersSquareSteinMart,
+  winchesterMallDicks,
+  winchesterMallMichaels,
+  joyBeechCornersSign,
+  kmartShoppingCenter,
+  officeBuildingPhoto,
+];
 
 export const galleryIntro = PLACEHOLDER(
   "Gallery page — no real project photos supplied yet. Send photos and we'll build this out."
