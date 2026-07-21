@@ -31,6 +31,20 @@ import maplePlaceSign from "../assets/maple-place-sign.jpeg";
 import cornerPlaceSign from "../assets/corner-place-sign.jpeg";
 import pineRidgeSign from "../assets/pine-ridge-sign.jpeg";
 import biscayneAerial from "../assets/biscayne-aerial.jpeg";
+import orionRidgeElevation from "../assets/orion-ridge-elevation.jpeg";
+import farmingtonReserves1 from "../assets/farmington-reserves-1.jpeg";
+import farmingtonReserves2 from "../assets/farmington-reserves-2.jpeg";
+import farmingtonReserves3 from "../assets/farmington-reserves-3.jpeg";
+import residentialTowers from "../assets/residential-towers.jpeg";
+import villageOfClawson from "../assets/village-of-clawson.jpeg";
+import annArborWoods from "../assets/ann-arbor-woods.jpeg";
+import emeraldParkRendering from "../assets/emerald-park-rendering.jpeg";
+import lyndonParkRendering from "../assets/lyndon-park-rendering.jpeg";
+import newportEstates from "../assets/newport-estates.jpeg";
+import coveCreek from "../assets/cove-creek.jpeg";
+import whetherstoneCondominiums from "../assets/whetherstone-condominiums.jpeg";
+import auburnParkCondominiums from "../assets/auburn-park-condominiums.jpeg";
+import coachlightCondominiums from "../assets/coachlight-condominiums.jpeg";
 
 /** Wraps text that has NOT been confirmed against the real site. */
 export const PLACEHOLDER = (label: string) => `[PLACEHOLDER: ${label}]`;
@@ -427,6 +441,11 @@ export type SingleFamilyListing = {
   location: string;
   description: string[];
   jointVentureNote?: string;
+  image?: string;
+  imageAlt?: string;
+  // Multiple elevation options for one community (e.g. Farmington Reserves) —
+  // renders as a small triptych instead of the usual single photo.
+  images?: string[];
 };
 
 /**
@@ -437,6 +456,13 @@ export type SingleFamilyListing = {
  * second, none of which the flat listings grid used elsewhere fits.
  * A couple of obvious typos on the live site ("shopps", "nestors") are kept
  * verbatim rather than silently corrected.
+ *
+ * Photos (client-supplied, 2026-07-21) were sent as one batch per section
+ * without per-image labels, so each photo/rendering below is matched to a
+ * listing by content (e.g. the duplex elevation drawing to Orion Ridge, the
+ * Miami rendering to Residential Towers) and, where content alone doesn't
+ * distinguish, by the order they were sent in. Flag to the client if any
+ * photo is paired with the wrong community.
  */
 export const singleFamilyHomes = {
   heading: "Single Family Homes and Attached Condos",
@@ -448,6 +474,8 @@ export const singleFamilyHomes = {
       {
         name: "Orion Ridge",
         location: "Duplex Residential Condominium Community in Orion, MI",
+        image: orionRidgeElevation,
+        imageAlt: "Orion Ridge duplex ranch-style condominium front elevation drawing",
         description: [
           "Orion Ridge is located on the heavily traveled Baldwin Rd. corridor in one of the nicest suburban communities of southeast Michigan. The thirteen acre site, assembled with the purchase of four separate parcels, is designed with duplex ranch-style condominiums targeted toward empty nesters and young families. Maintenance free living, with lawn care and snow removal services performed for all residents, is part of the appeal of this new community. Additional features include the site's location itself which is walking distance to Walgreens, a local bank, other neighborhood shopps and a short drive to the famous Great Lakes Crossing Mall.",
         ],
@@ -455,6 +483,8 @@ export const singleFamilyHomes = {
       {
         name: "Farmington Reserves",
         location: "19 Single Family Homes, Farmington Hills, MI",
+        images: [farmingtonReserves1, farmingtonReserves2, farmingtonReserves3],
+        imageAlt: "Farmington Reserves elevation options",
         description: [
           "Farmington Reserves is located in one of the best school districts in Oakland County, and very close to the desirable attractions of downtown Farmington. With only 19 homes in a community where the demand for homes far exceeds supply, sales in this community at prices averaging in the $500s, are anticipated to be fast. Homes styles offered will include a ranch with approximately 1,800 square feet, and several colonial plans which range in size from 2,000 to 2,500 square feet. As typical of homes offered by Sherr, there will be many upgrades and options for interior materials and finishes, along with the ability to provide for modest custom requests.",
         ],
@@ -462,6 +492,8 @@ export const singleFamilyHomes = {
       {
         name: "Residential Towers",
         location: "364 Condominium Units, Miami, FL",
+        image: residentialTowers,
+        imageAlt: "Residential Towers rendering, Miami, FL",
         description: [
           "This exciting new residential development will consist of two residential towers with a total of 364 units, located on one of the most attractive parts of the intercoastal in Miami. Each tower will be 42 stories with structured parking for over 800 cars and an extensive amenity package. Views north along the intercoastal through Bal Harbor and south into downtown Miami, will be amazingly unobstructed. Along with attractive open floorplans featuring floor-to-ceiling windows, the development will have available 35 boat slips, which is rare in a development of this kind.",
           "Our development partner represents the largest development name in south Florida, who also has major developments around the world. This name recognition combined with the flag of a major name in the hospitality business, is certain to resonate with the target market of both international and domestic buyers. For Sherr, the Florida market is not new; however, to participate in this type of development with a team that is unmatched in experience and talent represents a truly unique opportunity that we are enthusiastic to pursue.",
@@ -470,6 +502,8 @@ export const singleFamilyHomes = {
       {
         name: "Village of Clawson",
         location: "39 Single Family Homes, Clawson, MI",
+        image: villageOfClawson,
+        imageAlt: "Village of Clawson home",
         description: [
           "The Village of Clawson will provide an exciting opportunity for new home buyers in the highly desirable community of Clawson. With a total of 39 homes, this will be the largest new residential development in the city in many years. Homes will range in size from 1,800 square feet to 2,600 square feet, with prices expected to start in the $500s. The homes will feature fresh elevations, multiple selections for appliances, plumbing and lighting fixtures, and many options on flooring, cabinetry including several choices on stone and quartz countertops.",
         ],
@@ -478,6 +512,8 @@ export const singleFamilyHomes = {
       {
         name: "Ann Arbor Woods",
         location: "35 Ranch-style homes, Ann Arbor, MI",
+        image: annArborWoods,
+        imageAlt: "Ann Arbor Woods ranch-style home",
         description: [
           "This attractive community of ranch-style homes is targeted to appeal to move-up buyers and empty nestors seeking maintenance-free living on a single floor without the need to climb stairs. Many families in Ann Arbor have now experienced young ones moving out on their own leaving them with reduced space needs. The opportunity to purchase a new home, right sized with the master bedroom on the main floor, provides the perfect answer for these families who now seek to downsize. These new ranches will feature multiple choices for appliances, plumbing and electrical fixtures. Other options will be available for trim, door style, wood flooring, cabinetry and stone countertops. With a location that is walking distance to Buhr Park, and in close proximity to downtown Ann Arbor, this new residential community is certain to experience great interest and strong demand.",
         ],
@@ -491,6 +527,10 @@ export const singleFamilyHomes = {
       {
         name: "Emerald Park",
         location: "44 Single Family Homes, Farmington Hills, MI",
+        // Sold to Pulte before construction (see description) — this is a
+        // pre-construction concept rendering, not a photo of a built home.
+        image: emeraldParkRendering,
+        imageAlt: "Emerald Park home rendering",
         description: [
           "This 20 acre site is located on an infill parcel in the heart of one of the most attractive residential communities in Southeast, MI. The site was approved under the cluster option for single-family homes on 55 ft. lots. The home plans would range in size from a ranch with 1,680 sf to two-story colonials with up to 2,800 sf. Ultimately, prior to construction beginning, the site was purchased by Pulte Homes for its unique characteristics and extremely favorable demographics. While Sherr Development was not responsible for the construction and the sale of homes, the sale price of the property to Pulte provided a very attractive return on the investment made by Sherr.",
         ],
@@ -498,6 +538,8 @@ export const singleFamilyHomes = {
       {
         name: "Lyndon Park",
         location: "39 Lot Single Family Community, Livonia, MI",
+        image: lyndonParkRendering,
+        imageAlt: "Lyndon Park home rendering",
         description: [
           "Lyndon Park is a new 39-home residential community located in the highly acclaimed Livonia School District. While wet conditions and cold weather slowed initial development activity, ultimately the homes were constructed and sold in record time. The homes were targeted toward families seeking value and design, with features and amenities that include home offices, open kitchens, 9 ft first floor ceilings, stainless steel appliances, and many other selections for wide plank flooring, stone countertops and cabinetry. To offer the most up-to-date technology in our homes, other features included phone-controlled security systems and thermostats, and smart appliances.",
         ],
@@ -505,6 +547,8 @@ export const singleFamilyHomes = {
       {
         name: "Newport Estates",
         location: "187 Lot Single Family Community, Newport, MI",
+        image: newportEstates,
+        imageAlt: "Newport Estates home",
         description: [
           "This 187 lot community, which was constructed in three phases, is now sold out. The homes at Newport range in size from 1,500 sf to 2,100 sf and range in price from the mid-$100s to the low $200s. Designed to provide attractive new homes at affordable prices, Newport appealed well to both first-time home buyers and move-up home buyers.",
           "The site plan at Newport consists of 65 ft. lots with a centralized area for mail boxes and a play park. By clustering mail boxes in one area and creating a common park amenity, we have eliminated the street clutter from a multitude of mailbox styles and colors and tried to minimize the need for each homeowner to invest in backyard swing sets and play structures.",
@@ -514,6 +558,8 @@ export const singleFamilyHomes = {
       {
         name: "Cove Creek",
         location: "Single Family Homes and Condominiums, Taylor, MI",
+        image: coveCreek,
+        imageAlt: "Cove Creek home",
         description: [
           "Cove Creek consists of two distinct residential communities on a single site: 23 single family homes on the north part of the property and 20 duplex condominiums on the south part. The site was designed such that the single family homes are separated from the condominiums by a creek and natural woodland that traverses the site. Each community has its own well defined entrance connected by perimeter landscaping which harmonizes and beautifies the overall appeal of the site. The site sold out quickly with both the homes and condominiums targeted toward move-up buyers and empty nesters.",
         ],
@@ -521,6 +567,8 @@ export const singleFamilyHomes = {
       {
         name: "Whetherstone Condominiums",
         location: "White Lake Township, MI",
+        image: whetherstoneCondominiums,
+        imageAlt: "Whetherstone Condominiums model home",
         description: [
           "Whetherstone consists of 111 attached condominiums in a series of two, three, four and five-unit buildings. The units themselves offer two different floorplans: a ranch with approximately 1,500 sq.ft. for those wishing to eliminate stairs; and a townhome with approximately 1,300 sq.ft. targeting younger individuals less concerned about having a staircase within the unit. The site is located in North Oakland County surrounded by lakes and within walking distance to neighborhood shops. With quality design and excellent construction, the site sold out within two years of opening at prices in the mid-to-high $100s.",
         ],
@@ -528,6 +576,8 @@ export const singleFamilyHomes = {
       {
         name: "Auburn Park Condominiums",
         location: "Auburn Hills, MI",
+        image: auburnParkCondominiums,
+        imageAlt: "Auburn Park Condominiums home",
         description: [
           "Designed by an award-winning architectural firm in Chicago, the 123 unit condominium community offered six different floor plans in a series six-unit buildings. With each floor plan targeting a distinctly different lifestyle, Auburn Park was able to appeal to a broad demographic of condominium buyers.",
           "Auburn Park opened for sales in early 2005 with prices starting in the mid-$100s. The community sold out quickly with final sales and construction completed within three years. Today Auburn Park is one of the most distinguished condominium communities in Auburn Hills with a landscaped entrance that commands strong appeal along the Baldwin Road corridor.",
@@ -536,6 +586,8 @@ export const singleFamilyHomes = {
       {
         name: "Coachlight Condominiums",
         location: "Taylor, MI",
+        image: coachlightCondominiums,
+        imageAlt: "Coachlight Condominiums building",
         description: [
           "Coachlight is a condominium community consisting of 102 units in a series of two, three and four-unit buildings. The ranch and townhome style floor plans were designed to appeal to empty nesters, single parents, divorcees and young professionals. With quality design and excellent construction, this site was sold out within two years of opening at prices in the high $100s. Today, Coachlight is one of the largest and most distinguished condominium communities in the City.",
         ],
