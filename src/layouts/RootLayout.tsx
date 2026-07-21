@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
-import { SherrWordmark } from "../components/SherrWordmark";
+import sherrLogo from "../assets/sherr-logo.png";
 import { footerNavItems, isNavGroup, navItems, siteMeta, type NavEntry } from "../content/content";
 
 /**
@@ -22,16 +22,13 @@ export function RootLayout() {
         <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-8 px-4 py-5 sm:px-6">
           <NavLink
             to="/"
-            className="flex min-w-0 flex-col leading-tight"
+            className="flex min-w-0 shrink-0 items-center"
             onClick={() => {
               setMenuOpen(false);
               scrollToTop();
             }}
           >
-            <SherrWordmark className="text-xl text-ink sm:text-2xl" />
-            <span className="mt-1 text-[10px] uppercase tracking-[0.2em] text-bronze-500 sm:text-[11px]">
-              {siteMeta.tagline}
-            </span>
+            <img src={sherrLogo} alt="Sherr Development" className="h-12 w-auto sm:h-14" />
           </NavLink>
 
           <nav data-nav="desktop" className="hidden shrink-0 min-[1080px]:flex min-[1080px]:items-center min-[1080px]:gap-6">
@@ -226,8 +223,8 @@ function Footer() {
     <footer className="border-t border-stone-800 bg-ink text-stone-300">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-3">
         <div>
-          <SherrWordmark className="text-xl text-stone-50" />
-          <p className="mt-2 text-sm text-stone-400">{siteMeta.legalName}</p>
+          <img src={sherrLogo} alt="Sherr Development" className="h-12 w-auto" />
+          <p className="mt-3 text-sm text-stone-400">{siteMeta.legalName}</p>
         </div>
         <div>
           <div className="text-[11px] font-medium uppercase tracking-[0.2em] text-bronze-400">Contact</div>
