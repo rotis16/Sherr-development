@@ -1,5 +1,4 @@
 import { PageHeader } from "../components/PageHeader";
-import { PlaceholderImage } from "../components/PlaceholderImage";
 import { Reveal } from "../components/Reveal";
 import { commercialProperties, type CommercialListing } from "../content/content";
 
@@ -22,6 +21,18 @@ export function CommercialProperties() {
                 <p key={i}>{paragraph}</p>
               ))}
             </div>
+            {netLeasedPortfolio.images && (
+              <div className="mt-8 grid max-w-2xl grid-cols-2 gap-4">
+                {netLeasedPortfolio.images.map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`${netLeasedPortfolio.imageAlt} ${i + 1}`}
+                    className="aspect-[3/2] w-full rounded-lg object-cover shadow-lg"
+                  />
+                ))}
+              </div>
+            )}
           </Reveal>
           <Reveal
             delay={150}
@@ -55,13 +66,27 @@ export function CommercialProperties() {
 function ListingCard({ listing }: { listing: CommercialListing }) {
   return (
     <div className="group">
-      <div className="overflow-hidden">
-        <PlaceholderImage
-          label={`${listing.name} — property photo`}
-          className="aspect-[3/2] w-full transition-transform duration-500 group-hover:scale-105"
-        />
-      </div>
-      <div className="mt-5">
+      {listing.images ? (
+        <div className="grid grid-cols-2 gap-1 overflow-hidden">
+          {listing.images.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`${listing.imageAlt ?? listing.name} ${i + 1}`}
+              className="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ))}
+        </div>
+      ) : listing.image ? (
+        <div className="overflow-hidden">
+          <img
+            src={listing.image}
+            alt={listing.imageAlt ?? listing.name}
+            className="aspect-[3/2] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      ) : null}
+      <div className={listing.image || listing.images ? "mt-5" : ""}>
         <h3 className="font-display text-lg font-medium text-ink">{listing.name}</h3>
         <p className="mt-0.5 text-sm font-medium uppercase tracking-wide text-bronze-600">{listing.location}</p>
         <div className="mt-3 space-y-3 text-sm leading-relaxed text-ink-soft/85">
