@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Copy } from "../components/Copy";
 import { PageHeader } from "../components/PageHeader";
 import { PlaceholderImage } from "../components/PlaceholderImage";
 import { Reveal } from "../components/Reveal";
 import type { PropertyCategory } from "../content/content";
+import { smoothScrollToCenter } from "../lib/smoothScroll";
 
 type Listing = PropertyCategory["listings"][number];
 
@@ -39,9 +40,22 @@ export function PropertyCategoryPage({ category }: { category: PropertyCategory 
 
 function ListingCard({ listing }: { listing: Listing }) {
   const [open, setOpen] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const toggle = () => {
+    const next = !open;
+    setOpen(next);
+    if (next) {
+      // Wait for the extra paragraphs to render before measuring, so the
+      // whole expanded card ends up in view instead of getting cut off.
+      requestAnimationFrame(() => {
+        if (cardRef.current) smoothScrollToCenter(cardRef.current);
+      });
+    }
+  };
 
   return (
-    <div className="group">
+    <div ref={cardRef} className="group scroll-mt-24">
       <div className="overflow-hidden">
         {listing.image ? (
           <img
@@ -69,7 +83,7 @@ function ListingCard({ listing }: { listing: Listing }) {
         {listing.moreDescription && listing.moreDescription.length > 0 && (
           <button
             type="button"
-            onClick={() => setOpen((v) => !v)}
+            onClick={toggle}
             aria-expanded={open}
             className="font-display mt-3 flex items-center gap-1 text-sm italic text-ink underline decoration-bronze-500 decoration-1 underline-offset-2 hover:text-bronze-600"
           >
